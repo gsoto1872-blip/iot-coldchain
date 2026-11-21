@@ -5,7 +5,7 @@
 [![Architecture](https://img.shields.io/badge/Architecture-Medallion_Lakehouse-orange.svg)]()
 [![License](https://img.shields.io/badge/License-Apache_2.0-lightgrey.svg)]()
 
-> **Proyecto Final de Curso:** Arquitectura y Procesamiento de Datos Masivos / Internet of Things (IoT)  
+> **Proyecto Final de Curso:** Big Data 2026  
 > **Autor:** Guillermo Soto  
 > **Fecha:** Noviembre 2026  
 
