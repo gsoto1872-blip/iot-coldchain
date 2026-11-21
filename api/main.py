@@ -176,7 +176,7 @@ def get_thermal_incidents(
 # -----------------------------------------------------------------------------
 @app.get("/api/v1/kpis/daily", tags=["Analítica & Auditoría"])
 def get_daily_kpis(
-    date: Optional[str] = Query(None, example="2026-11-19", description="Fecha en formato YYYY-MM-DD")
+    date: Optional[str] = Query(None, description="Fecha en formato YYYY-MM-DD (ej: 2026-11-19)")
 ):
     """
     Retorna métricas consolidadas por día, dispositivo y producto para tableros ejecutivos.
