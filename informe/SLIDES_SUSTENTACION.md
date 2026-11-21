@@ -9,7 +9,7 @@
 * **Región de Despliegue:** `us-central1` (Council Bluffs, Iowa, Estados Unidos)
 * **Autor / Sustentante:** Guillermo Soto
 * **Fecha de Sustentación:** Noviembre 2026
-* **Repositorio Oficial de Código:** [https://github.com/gsoto1872/iot-coldchain](https://github.com/gsoto1872/iot-coldchain)
+* **Repositorio Oficial de Código:** [https://github.com/gsoto1872-blip/iot-coldchain](https://github.com/gsoto1872-blip/iot-coldchain)
 * **Presentador Interactivo HTML:** [SLIDES_SUSTENTACION.html](file:///home/gsoto1872/iot-coldchain/informe/SLIDES_SUSTENTACION.html)
 * **Speech y Discurso Oral Palabra por Palabra:** [SPEECH_SUSTENTACION.md](file:///home/gsoto1872/iot-coldchain/informe/SPEECH_SUSTENTACION.md)
 * **Informe Técnico Extendido:** [INFORME_FINAL_PROYECTO_IOT.md](file:///home/gsoto1872/iot-coldchain/informe/INFORME_FINAL_PROYECTO_IOT.md)
@@ -627,7 +627,7 @@ flowchart LR
 | DEFENSA TÉCNICA Y BANCO MAESTRO DE PREGUNTAS Y RESPUESTAS (Q&A)                                    |
 +----------------------------------------------------------------------------------------------------+
 | SUSTENTANTE: Guillermo Soto           |  PROYECTO GCP: myfirstproject-508413                       |
-| REGIÓN: us-central1 (Council Bluffs)  |  REPOSITORIO: https://github.com/gsoto1872/iot-coldchain   |
+| REGIÓN: us-central1 (Council Bluffs)  |  REPOSITORIO: https://github.com/gsoto1872-blip/iot-coldchain   |
 | ESTADO DE SERVICIOS: 100% OPERATIVO   |  DOCUMENTACIÓN OPENAPI: /docs (FastAPI)                    |
 +----------------------------------------------------------------------------------------------------+
 |  TOP PREGUNTAS CLAVE PREPARADAS:                                                                   |

@@ -6,7 +6,7 @@
 **Región de Despliegue:** `us-central1` (Council Bluffs, Iowa, Estados Unidos)  
 **Autor:** Guillermo Soto  
 **Fecha de Presentación:** Noviembre 2026  
-**Repositorio Oficial de Código:** [https://github.com/gsoto1872/iot-coldchain](https://github.com/gsoto1872/iot-coldchain)  
+**Repositorio Oficial de Código:** [https://github.com/gsoto1872-blip/iot-coldchain](https://github.com/gsoto1872-blip/iot-coldchain)  
 **Documento:** Memoria de Ingeniería y Documentación Técnica Final Consolidada  
 
 ---
@@ -913,7 +913,7 @@ def test_incidents_endpoint():
 
 ### Anexo G: Repositorio Git y Registro de Control de Versiones
 El proyecto completo se encuentra versionado en la rama `main` del repositorio oficial:  
-**URL:** [https://github.com/gsoto1872/iot-coldchain](https://github.com/gsoto1872/iot-coldchain)  
+**URL:** [https://github.com/gsoto1872-blip/iot-coldchain](https://github.com/gsoto1872-blip/iot-coldchain)  
 * `0c101fa`: docs(presentation): align slides and speech with exact 10 mandatory evaluation bullets.
 * `87c04b5`: docs(speech): create SPEECH_SUSTENTACION.md with full word-for-word spoken script.
 * `de80ca8`: docs(slides): expand SLIDES_SUSTENTACION.md with comprehensive slide-by-slide pedagogical guides.

@@ -116,7 +116,7 @@ iot-coldchain/
 
 ### 1. Clonar el Repositorio
 ```bash
-git clone https://github.com/gsoto1872/iot-coldchain.git
+git clone https://github.com/gsoto1872-blip/iot-coldchain.git
 cd iot-coldchain
 ```
 

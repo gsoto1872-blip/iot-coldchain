@@ -8,7 +8,7 @@
 
 * **Sustentante:** Guillermo Soto
 * **Proyecto GCP Activo:** `myfirstproject-508413` | **Región:** `us-central1` (Iowa, EE. UU.)
-* **Repositorio de Código:** [https://github.com/gsoto1872/iot-coldchain](https://github.com/gsoto1872/iot-coldchain)
+* **Repositorio de Código:** [https://github.com/gsoto1872-blip/iot-coldchain](https://github.com/gsoto1872-blip/iot-coldchain)
 * **Tiempo Total Estimado:** 18 a 20 minutos de exposición + 10 minutos de ronda de preguntas (Q&A).
 * **Herramientas de Apoyo:**
   - Diapositivas Interactivas: [SLIDES_SUSTENTACION.html](file:///home/gsoto1872/iot-coldchain/informe/SLIDES_SUSTENTACION.html)
