@@ -8,6 +8,7 @@ Inyección de anomalía -> Pub/Sub -> BigQuery Streaming -> Hot Path Alert -> Ba
 import time
 import json
 import os
+import random
 from datetime import datetime, timezone
 from google.cloud import pubsub_v1, bigquery
 from fastapi.testclient import TestClient
@@ -38,9 +39,9 @@ def run_e2e_demo():
     # -------------------------------------------------------------------------
     print_banner("PASO 1: Emulación de Falla Crítica en Sensor de Transporte (IoT)")
     device_id = "SENSOR-02"
-    temp_anomala = 13.5  # Muy por encima de los 4.0 °C permitidos para Carne Fresca
-    humidity = 72.0
-    battery = 91
+    temp_anomala = round(random.uniform(14.2, 17.8), 1)  # Temperatura dinámica crítica para la demo en vivo
+    humidity = round(random.uniform(68.0, 78.0), 1)
+    battery = random.randint(88, 95)
 
     payload = {
         "device_id": device_id,
@@ -145,6 +146,12 @@ def run_e2e_demo():
     print(f"   4. [SEGUROS]: Archivo probatorio generado con Hash MD5 para liquidación de póliza de seguro de carga.")
 
     print_banner("🎉 DEMOSTRACIÓN END-TO-END COMPLETADA CON ÉXITO")
+    print(f"👉 ¡MIRA TU DASHBOARD EN EL NAVEGADOR!")
+    print(f"   • La temperatura de SENSOR-02 acaba de registrar: {temp_anomala} °C")
+    print(f"   • El gráfico térmico y la tarjeta de 'Camión-Reparto-04' se actualizaron.")
+    print(f"   • Un nuevo incidente fue insertado en BigQuery Gold con su pérdida en $ USD.")
+    print(f"   • Dashboard URL: http://localhost:8000/dashboard (o Web Preview en Cloud Shell)")
+    print("=" * 75 + "\n")
 
 if __name__ == "__main__":
     run_e2e_demo()

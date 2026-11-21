@@ -54,32 +54,24 @@
         }
         @keyframes pulse-slow {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.75; transform: scale(1.02); }
+            50% { opacity: 0.85; transform: scale(1.01); }
         }
         .pulse-alert {
             animation: pulse-slow 2s infinite ease-in-out;
         }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
+        @keyframes flash-green {
+            0% { background-color: rgba(16, 185, 129, 0.2); }
+            100% { background-color: transparent; }
         }
-        ::-webkit-scrollbar-track {
-            background: #09090b;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #27272a;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3f3f46;
+        .flash-updated {
+            animation: flash-green 1s ease-out;
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
     <!-- TOP NAVIGATION BAR -->
-    <header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur sticky top-0 z-50 px-4 lg:px-8 py-3">
+    <header class="border-b border-zinc-800 bg-zinc-950/90 backdrop-blur sticky top-0 z-50 px-4 lg:px-8 py-3">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
             <div class="flex items-center space-x-3">
                 <div class="w-9 h-9 rounded-lg bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 font-bold text-xl">
@@ -90,7 +82,7 @@
                         <h1 class="text-base font-bold tracking-tight text-white">Smart Cold Chain IoT</h1>
                         <span class="text-[10px] uppercase tracking-wider bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded-full font-data font-semibold">GCP Lakehouse</span>
                     </div>
-                    <p class="text-xs text-zinc-400">Centro de Operaciones y Monitoreo Térmico en Tiempo Real</p>
+                    <p class="text-xs text-zinc-400">Centro de Operaciones y Monitoreo Térmico en Vivo</p>
                 </div>
             </div>
 
@@ -101,19 +93,23 @@
                     <span class="text-zinc-400">GCP:</span>
                     <span class="text-zinc-200 font-medium">myfirstproject-508413</span>
                 </div>
-                <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-xs font-data">
-                    <span class="text-zinc-400">Región:</span>
-                    <span class="text-zinc-200 font-medium">us-central1</span>
-                </div>
+                
                 <div id="backend-status-badge" class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-950/40 border border-emerald-800/60 text-xs font-data text-emerald-400">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                    <span id="backend-status-text">API Online (Port 8000)</span>
+                    <span id="backend-status-text">API Online (Conectado a BigQuery)</span>
                 </div>
-                <button onclick="triggerSimulatedIncident()" class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-rose-600/20 border border-rose-500/40 text-rose-300 hover:bg-rose-600/30 text-xs font-medium transition cursor-pointer">
-                    <span>⚡ Simular Alerta E2E</span>
+
+                <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-xs font-data text-zinc-400">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+                    <span id="sync-timer-text">Sincronizando cada 3s</span>
+                </div>
+
+                <button onclick="triggerSimulatedIncidentWeb()" id="btn-simulate-web" class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-rose-600 hover:bg-rose-500 text-white text-xs font-medium transition cursor-pointer shadow-sm">
+                    <span>⚡ Inyectar Alerta Demo</span>
                 </button>
-                <button onclick="refreshData()" class="p-1.5 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition" title="Refrescar Datos">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+
+                <button onclick="manualRefresh()" class="p-1.5 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition" title="Refrescar Datos Ahora">
+                    <svg id="refresh-spinner" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                 </button>
             </div>
         </div>
@@ -122,7 +118,7 @@
     <!-- MAIN DASHBOARD CONTENT -->
     <main class="max-w-7xl mx-auto px-4 lg:px-8 py-6 flex-1 w-full space-y-6">
 
-        <!-- ALERTA ACTIVA BANNER (CONDICIONAL) -->
+        <!-- DYNAMIC ACTIVE ALERT BANNER -->
         <div id="active-alert-banner" class="card-zinc bg-rose-950/30 border-rose-800/60 p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pulse-alert">
             <div class="flex items-start gap-3">
                 <div class="p-2.5 rounded-lg bg-rose-500/20 border border-rose-500/30 text-rose-400">
@@ -130,11 +126,11 @@
                 </div>
                 <div>
                     <div class="flex items-center gap-2">
-                        <span class="text-xs font-bold uppercase tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/30 px-2 py-0.5 rounded font-data">Infracción Crítica Detectada</span>
-                        <span class="text-xs text-rose-400/80 font-data">Hot Path: hace 4s</span>
+                        <span id="banner-badge" class="text-xs font-bold uppercase tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/30 px-2 py-0.5 rounded font-data">Infracción Crítica Detectada</span>
+                        <span id="banner-timestamp" class="text-xs text-rose-400/80 font-data">Hot Path: en vivo</span>
                     </div>
-                    <p class="text-sm text-zinc-200 mt-1">
-                        Vehículo <strong class="text-white">Camión-Reparto-04</strong> (Sensor: <code class="font-data text-rose-300">SENSOR-02</code>) con carga de <strong>Carne Fresca</strong> reporta <strong class="text-rose-400 font-data">+13.5°C</strong> (Exceso: <strong class="text-rose-300 font-data">+9.5°C</strong>).
+                    <p id="banner-description" class="text-sm text-zinc-200 mt-1">
+                        Vehículo <strong class="text-white" id="banner-truck">Camión-Reparto-04</strong> (Sensor: <code class="font-data text-rose-300" id="banner-sensor">SENSOR-02</code>) con carga de <strong id="banner-product">Carne Fresca</strong> reporta <strong class="text-rose-400 font-data" id="banner-temp">+13.5°C</strong> (Exceso: <strong class="text-rose-300 font-data" id="banner-excess">+9.5°C</strong>).
                     </p>
                 </div>
             </div>
@@ -158,11 +154,11 @@
                 </div>
                 <div class="mt-2 flex items-baseline gap-2">
                     <span id="kpi-devices" class="text-2xl font-bold font-data text-white">3</span>
-                    <span class="text-xs text-zinc-400">unidades en tránsito</span>
+                    <span class="text-xs text-zinc-400">sensores en ruta</span>
                 </div>
                 <div class="mt-2 text-[11px] text-zinc-400 flex items-center justify-between">
-                    <span>Carne, Vacunas, Congelados</span>
-                    <span class="text-emerald-400">100% Cobertura</span>
+                    <span>Carne, Vacunas, Helados</span>
+                    <span class="text-emerald-400 font-medium">100% Cobertura</span>
                 </div>
             </div>
 
@@ -174,10 +170,10 @@
                 </div>
                 <div class="mt-2 flex items-baseline gap-2">
                     <span id="kpi-latency" class="text-2xl font-bold font-data text-emerald-400">1.8s</span>
-                    <span class="text-xs text-zinc-400">tiempo real</span>
+                    <span class="text-xs text-zinc-400">BigQuery View</span>
                 </div>
                 <div class="mt-2 text-[11px] text-zinc-400 flex items-center justify-between">
-                    <span>Pub/Sub ➔ BigQuery View</span>
+                    <span>v_alertas_cadena_frio</span>
                     <span class="text-emerald-400 font-semibold">ÓPTIMO</span>
                 </div>
             </div>
@@ -185,15 +181,15 @@
             <!-- KPI 3 -->
             <div class="card-zinc p-4 border-rose-900/40">
                 <div class="flex items-center justify-between text-zinc-400 text-xs">
-                    <span>Pérdidas Liquidadas (Gold)</span>
+                    <span>Pérdidas Totales (Gold)</span>
                     <span class="text-rose-400 text-xs font-data">Impacto USD</span>
                 </div>
                 <div class="mt-2 flex items-baseline gap-2">
                     <span id="kpi-loss" class="text-2xl font-bold font-data text-rose-400">$5,937.50</span>
                 </div>
                 <div class="mt-2 text-[11px] text-zinc-400 flex items-center justify-between">
-                    <span>Fórmula dimensional Gold</span>
-                    <span class="text-rose-400">Incidentes activos</span>
+                    <span id="kpi-incident-count">5 incidentes registrados</span>
+                    <span class="text-rose-400 font-semibold">Valorizado</span>
                 </div>
             </div>
 
@@ -204,19 +200,19 @@
                     <span class="text-zinc-400 text-[10px]">OMS TRS 961</span>
                 </div>
                 <div class="mt-2 flex items-baseline gap-2">
-                    <span id="kpi-compliance" class="text-2xl font-bold font-data text-amber-400">97.4%</span>
+                    <span id="kpi-compliance" class="text-2xl font-bold font-data text-amber-400">96.8%</span>
                     <span class="text-xs text-zinc-400">en rango</span>
                 </div>
                 <div class="mt-2 text-[11px] text-zinc-400 flex items-center justify-between">
-                    <span>Silver Deduplicated</span>
-                    <span class="text-amber-400">1 alerta crítica</span>
+                    <span>Silver Deduplicado</span>
+                    <span id="kpi-alert-status" class="text-rose-400">Desvío en ruta</span>
                 </div>
             </div>
 
             <!-- KPI 5 -->
             <div class="card-zinc p-4">
                 <div class="flex items-center justify-between text-zinc-400 text-xs">
-                    <span>Costo Mensual Infraestructura</span>
+                    <span>Costo Mensual Infra</span>
                     <span class="text-blue-400 font-data text-[10px]">TCO Serverless</span>
                 </div>
                 <div class="mt-2 flex items-baseline gap-2">
@@ -230,34 +226,36 @@
             </div>
         </section>
 
-        <!-- ROW 2: LIVE ASSETS / SENSORS MONITOR -->
+        <!-- ROW 2: LIVE SENSORS & ASSETS MONITOR -->
         <section class="space-y-3">
             <div class="flex items-center justify-between">
-                <h2 class="text-sm font-semibold text-zinc-300 uppercase tracking-wider">Unidades y Cámaras en Monitoreo Vivo</h2>
-                <span class="text-xs text-zinc-400 font-data">Frecuencia de lectura: 10 seg</span>
+                <div class="flex items-center gap-2">
+                    <h2 class="text-sm font-semibold text-zinc-300 uppercase tracking-wider">Unidades y Cámaras en Monitoreo Vivo</h2>
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                </div>
+                <span id="last-update-tag" class="text-xs text-zinc-400 font-data">Última lectura: Conectando...</span>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="fleet-cards-container">
-                <!-- SENSOR 02: EN ALERTA -->
-                <div class="card-zinc p-5 border-rose-800/80 bg-rose-950/10 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-rose-500/5 rounded-full blur-xl pointer-events-none"></div>
+                <!-- SENSOR 02: CAMION CARNE FRESCA -->
+                <div id="card-sensor-02" class="card-zinc p-5 border-rose-800/80 bg-rose-950/10 relative overflow-hidden transition-all">
                     <div class="flex items-start justify-between">
                         <div>
                             <span class="text-[10px] font-bold font-data bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">SENSOR-02</span>
                             <h3 class="text-base font-bold text-white mt-1">Camión-Reparto-04</h3>
                             <p class="text-xs text-zinc-400">Chofer: <span class="text-zinc-200">Juan Perez</span></p>
                         </div>
-                        <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">CRÍTICA</span>
+                        <span id="badge-sensor-02" class="px-2 py-0.5 rounded text-[11px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">ALERTA CRÍTICA</span>
                     </div>
 
                     <div class="mt-4 flex items-baseline justify-between">
                         <div>
-                            <span class="text-3xl font-bold font-data text-rose-400">+13.5°C</span>
-                            <span class="text-xs text-zinc-400 block mt-0.5">Límite máx: 4.0°C (+9.5°C)</span>
+                            <span id="temp-sensor-02" class="text-3xl font-bold font-data text-rose-400">+13.5°C</span>
+                            <span id="diff-sensor-02" class="text-xs text-rose-300/80 block mt-0.5 font-data">Exceso: +9.5°C (Límite: 4.0°C)</span>
                         </div>
                         <div class="text-right">
-                            <span class="text-xs font-data text-zinc-300">72.0% Humedad</span>
-                            <span class="text-xs font-data text-zinc-400 block">🔋 91% Batería</span>
+                            <span id="hum-sensor-02" class="text-xs font-data text-zinc-300">72.0% Humedad</span>
+                            <span id="bat-sensor-02" class="text-xs font-data text-zinc-400 block">🔋 91% Batería</span>
                         </div>
                     </div>
 
@@ -266,44 +264,43 @@
                         <div class="h-2 w-full bg-zinc-800 rounded-full overflow-hidden flex">
                             <div class="bg-blue-500 w-[15%]"></div>
                             <div class="bg-emerald-500 w-[35%]"></div>
-                            <div class="bg-rose-500 w-[50%]"></div>
+                            <div id="gauge-bar-sensor-02" class="bg-rose-500 w-[50%] transition-all duration-500"></div>
                         </div>
                         <div class="flex justify-between text-[10px] text-zinc-400 font-data mt-1">
-                            <span>0.0°C Min</span>
-                            <span class="text-rose-400 font-bold">13.5°C (Actual)</span>
+                            <span>-1.0°C Min</span>
+                            <span id="gauge-val-sensor-02" class="text-rose-400 font-bold">13.5°C (Actual)</span>
                             <span>4.0°C Max</span>
                         </div>
                     </div>
 
                     <div class="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs">
                         <span class="text-zinc-400">Carga: <strong class="text-zinc-200">Carne Fresca</strong></span>
-                        <span class="text-rose-400 font-data font-semibold">Pérdida: $1,187.50 USD</span>
+                        <span id="loss-sensor-02" class="text-rose-400 font-data font-semibold">Pérdida: $1,187.50 USD</span>
                     </div>
                 </div>
 
-                <!-- SENSOR 01: NORMAL -->
-                <div class="card-zinc p-5">
+                <!-- SENSOR 01: CAMARA REFRIGERADA VACUNAS -->
+                <div id="card-sensor-01" class="card-zinc p-5">
                     <div class="flex items-start justify-between">
                         <div>
                             <span class="text-[10px] font-bold font-data bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">SENSOR-01</span>
                             <h3 class="text-base font-bold text-white mt-1">Cámara-Refrigerada-A</h3>
                             <p class="text-xs text-zinc-400">Responsable: <span class="text-zinc-200">Dr. Garcia</span></p>
                         </div>
-                        <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">NORMAL</span>
+                        <span id="badge-sensor-01" class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">NORMAL</span>
                     </div>
 
                     <div class="mt-4 flex items-baseline justify-between">
                         <div>
-                            <span class="text-3xl font-bold font-data text-emerald-400">+4.2°C</span>
-                            <span class="text-xs text-zinc-400 block mt-0.5">Rango: 2.0°C a 8.0°C</span>
+                            <span id="temp-sensor-01" class="text-3xl font-bold font-data text-emerald-400">+4.2°C</span>
+                            <span class="text-xs text-zinc-400 block mt-0.5 font-data">Rango: 2.0°C a 8.0°C</span>
                         </div>
                         <div class="text-right">
-                            <span class="text-xs font-data text-zinc-300">55.4% Humedad</span>
-                            <span class="text-xs font-data text-zinc-400 block">🔋 98% Batería</span>
+                            <span id="hum-sensor-01" class="text-xs font-data text-zinc-300">55.4% Humedad</span>
+                            <span id="bat-sensor-01" class="text-xs font-data text-zinc-400 block">🔋 98% Batería</span>
                         </div>
                     </div>
 
-                    <!-- Visual Gauge Bar -->
                     <div class="mt-3">
                         <div class="h-2 w-full bg-zinc-800 rounded-full overflow-hidden flex">
                             <div class="bg-blue-500 w-[20%]"></div>
@@ -323,29 +320,28 @@
                     </div>
                 </div>
 
-                <!-- SENSOR 03: NORMAL (CONGELADOR) -->
-                <div class="card-zinc p-5">
+                <!-- SENSOR 03: CONGELADOR CENTRAL HELADOS -->
+                <div id="card-sensor-03" class="card-zinc p-5">
                     <div class="flex items-start justify-between">
                         <div>
                             <span class="text-[10px] font-bold font-data bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">SENSOR-03</span>
                             <h3 class="text-base font-bold text-white mt-1">Congelador-Central-02</h3>
                             <p class="text-xs text-zinc-400">Responsable: <span class="text-zinc-200">Ana Gomez</span></p>
                         </div>
-                        <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">NORMAL</span>
+                        <span id="badge-sensor-03" class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">NORMAL</span>
                     </div>
 
                     <div class="mt-4 flex items-baseline justify-between">
                         <div>
-                            <span class="text-3xl font-bold font-data text-emerald-400">-19.0°C</span>
-                            <span class="text-xs text-zinc-400 block mt-0.5">Límite máx: -18.0°C</span>
+                            <span id="temp-sensor-03" class="text-3xl font-bold font-data text-emerald-400">-19.0°C</span>
+                            <span class="text-xs text-zinc-400 block mt-0.5 font-data">Límite máx: -18.0°C</span>
                         </div>
                         <div class="text-right">
-                            <span class="text-xs font-data text-zinc-300">42.1% Humedad</span>
-                            <span class="text-xs font-data text-zinc-400 block">🔋 94% Batería</span>
+                            <span id="hum-sensor-03" class="text-xs font-data text-zinc-300">42.1% Humedad</span>
+                            <span id="bat-sensor-03" class="text-xs font-data text-zinc-400 block">🔋 94% Batería</span>
                         </div>
                     </div>
 
-                    <!-- Visual Gauge Bar -->
                     <div class="mt-3">
                         <div class="h-2 w-full bg-zinc-800 rounded-full overflow-hidden flex">
                             <div class="bg-blue-500 w-[70%]"></div>
@@ -372,12 +368,12 @@
             <div class="card-zinc p-5 lg:col-span-2">
                 <div class="flex items-center justify-between mb-4">
                     <div>
-                        <h2 class="text-sm font-semibold text-zinc-200 uppercase tracking-wider">Perfil Térmico en Tiempo Real (Hot Path)</h2>
-                        <p class="text-xs text-zinc-400">Sensor SENSOR-02 vs Umbrales Normativos de Carne Fresca</p>
+                        <h2 class="text-sm font-semibold text-zinc-200 uppercase tracking-wider">Curva Térmica en Vivo (Hot Path)</h2>
+                        <p class="text-xs text-zinc-400">Telemetría de SENSOR-02 vs Umbral Máximo (+4.0°C)</p>
                     </div>
                     <div class="flex items-center gap-3 text-xs font-data">
-                        <span class="flex items-center gap-1.5 text-rose-400"><span class="w-2.5 h-2.5 bg-rose-500 rounded-full inline-block"></span> Temp Actual</span>
-                        <span class="flex items-center gap-1.5 text-zinc-400"><span class="w-2.5 h-0.5 bg-zinc-500 inline-block"></span> Límite (+4.0°C)</span>
+                        <span class="flex items-center gap-1.5 text-rose-400"><span class="w-2.5 h-2.5 bg-rose-500 rounded-full inline-block"></span> Temp Sensor</span>
+                        <span class="flex items-center gap-1.5 text-zinc-400"><span class="w-2.5 h-0.5 bg-zinc-500 inline-block"></span> Límite Máx (+4°C)</span>
                     </div>
                 </div>
                 <div class="h-64 relative">
@@ -392,7 +388,7 @@
                         <h2 class="text-sm font-semibold text-zinc-200 uppercase tracking-wider">Mermas por Categoría</h2>
                         <span class="text-xs font-data text-zinc-400">Capa Gold</span>
                     </div>
-                    <p class="text-xs text-zinc-400 mb-4">Distribución del impacto económico de incidentes</p>
+                    <p class="text-xs text-zinc-400 mb-4">Pérdida monetaria calculada en $ USD</p>
                     <div class="h-48 relative flex items-center justify-center">
                         <canvas id="lossChart"></canvas>
                     </div>
@@ -401,15 +397,15 @@
                 <div class="pt-4 border-t border-zinc-800 text-xs space-y-2 font-data">
                     <div class="flex justify-between text-zinc-300">
                         <span>🥩 Carne Fresca (PROD-02)</span>
-                        <span class="text-rose-400 font-bold">$4,750.00</span>
+                        <span id="breakdown-carne" class="text-rose-400 font-bold">$4,750.00</span>
                     </div>
                     <div class="flex justify-between text-zinc-300">
                         <span>💉 Vacunas Biológicas (PROD-01)</span>
-                        <span class="text-amber-400 font-bold">$1,187.50</span>
+                        <span id="breakdown-vacuna" class="text-amber-400 font-bold">$1,187.50</span>
                     </div>
                     <div class="flex justify-between text-zinc-300">
                         <span>🍦 Alimentos Congelados (PROD-03)</span>
-                        <span class="text-emerald-400 font-bold">$0.00</span>
+                        <span id="breakdown-helado" class="text-emerald-400 font-bold">$0.00</span>
                     </div>
                 </div>
             </div>
@@ -420,10 +416,10 @@
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                 <div>
                     <h2 class="text-sm font-semibold text-zinc-200 uppercase tracking-wider">Bitácora de Incidentes de Cadena de Frío (BigQuery Gold)</h2>
-                    <p class="text-xs text-zinc-400">Tabla de Hechos: <code class="font-data text-blue-400">cold_chain_db.gold_fact_incidentes</code></p>
+                    <p class="text-xs text-zinc-400">Tabla persistida: <code class="font-data text-blue-400">cold_chain_db.gold_fact_incidentes</code></p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <span class="text-xs text-zinc-400 font-data">Filtrar:</span>
+                    <span class="text-xs text-zinc-400 font-data">Filtro:</span>
                     <select id="severity-filter" onchange="filterIncidents()" class="bg-zinc-900 border border-zinc-700 text-xs text-zinc-200 rounded px-2.5 py-1 font-data focus:outline-none">
                         <option value="ALL">Todas las Severidades</option>
                         <option value="CRITICA" selected>Solo CRÍTICA</option>
@@ -443,26 +439,28 @@
                             <th class="py-2.5 px-3 text-right">Temp / Límite</th>
                             <th class="py-2.5 px-3 text-center">Exceso</th>
                             <th class="py-2.5 px-3 text-center">Severidad</th>
-                            <th class="py-2.5 px-3 text-right">Pérdida Estimada</th>
+                            <th class="py-2.5 px-3 text-right">Pérdida Liquidada</th>
                             <th class="py-2.5 px-3 text-center">Acción</th>
                         </tr>
                     </thead>
                     <tbody id="incidents-table-body" class="divide-y divide-zinc-800/60 text-zinc-300">
-                        <!-- Filled dynamically -->
+                        <tr>
+                            <td colspan="9" class="py-4 text-center text-zinc-500">Cargando incidentes desde BigQuery...</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- ROW 5: TECHNICAL QUICK VALIDATION GUIDE -->
+        <!-- ROW 5: QUICK ACTIONS AND DEMO GUIDE -->
         <section class="card-zinc p-5 bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border-zinc-800">
             <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
                 <div>
                     <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                        <span>🧪 Validación de Exposición API & Conectividad GCP</span>
+                        <span>🧪 Cómo Probar la Demo End-to-End en Vivo</span>
                     </h3>
                     <p class="text-xs text-zinc-400 mt-1">
-                        Puedes validar los endpoints en vivo de este dashboard con Swagger UI en <code class="text-blue-400 font-data">/docs</code> o descargar la memoria técnica.
+                        Ejecuta en tu terminal <code class="text-emerald-400 font-data">python demo/demo_e2e.py</code> mientras mantienes este dashboard abierto. Verás cómo en <strong>3 segundos</strong> se actualizan automáticamente las tarjetas, el gráfico y la tabla sin recargar la página.
                     </p>
                 </div>
                 <div class="flex flex-wrap items-center gap-2 text-xs font-data">
@@ -474,9 +472,6 @@
                     </a>
                     <a href="/api/v1/incidents?severity=CRITICA" target="_blank" class="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 rounded transition">
                         🚨 GET /incidents
-                    </a>
-                    <a href="https://github.com/gsoto1872-blip/iot-coldchain" target="_blank" class="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 rounded transition">
-                        ⭐ GitHub Repo
                     </a>
                 </div>
             </div>
@@ -492,39 +487,34 @@
             </div>
             <div class="font-data text-[11px] flex items-center gap-4">
                 <span>Ingesta: Pub/Sub ➔ BigQuery Direct</span>
-                <span>Almacén: Medallion Lakehouse</span>
+                <span>Lakehouse: Medallion (Bronze/Silver/Gold)</span>
                 <span>API: FastAPI</span>
             </div>
         </div>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <!-- INTERACTIVE JAVASCRIPT REAL-TIME LOGIC -->
     <script>
-        // State management
         let tempChartInstance = null;
         let lossChartInstance = null;
-        let simulatedTempHistory = [3.8, 3.9, 4.0, 4.2, 5.5, 8.2, 11.0, 13.5];
-        let simulatedTimeLabels = ['15:10', '15:12', '15:14', '15:16', '15:18', '15:20', '15:22', '15:24'];
+        let rawIncidents = [];
+        let autoPollingInterval = null;
 
-        const mockIncidents = [
-            { id: 'f78a73e31405', timestamp: '2026-11-21 15:26:11', device: 'SENSOR-02', vehicle: 'Camión-Reparto-04', product: 'Carne Fresca', temp: 13.5, limit: 4.0, diff: 9.5, severity: 'CRÍTICA', loss: 1187.50 },
-            { id: 'a0d2b1f9a179', timestamp: '2026-11-21 15:24:30', device: 'SENSOR-02', vehicle: 'Camión-Reparto-04', product: 'Carne Fresca', temp: 13.5, limit: 4.0, diff: 9.5, severity: 'CRÍTICA', loss: 1187.50 },
-            { id: '1f0d676f897c', timestamp: '2026-11-21 13:52:33', device: 'SENSOR-02', vehicle: 'Camión-Reparto-04', product: 'Carne Fresca', temp: 13.5, limit: 4.0, diff: 9.5, severity: 'CRÍTICA', loss: 1187.50 },
-            { id: 'e45b8892c901', timestamp: '2026-11-21 11:15:20', device: 'SENSOR-01', vehicle: 'Cámara-Refrigerada-A', product: 'Vacunas ARN', temp: 9.2, limit: 8.0, diff: 1.2, severity: 'LEVE', loss: 245.00 },
-        ];
+        // Chart history arrays
+        let chartLabels = [];
+        let chartData = [];
 
         // Initialize Charts
         function initCharts() {
-            // Line chart for Temperature
             const ctxTemp = document.getElementById('tempChart').getContext('2d');
             tempChartInstance = new Chart(ctxTemp, {
                 type: 'line',
                 data: {
-                    labels: simulatedTimeLabels,
+                    labels: chartLabels,
                     datasets: [
                         {
-                            label: 'Temperatura SENSOR-02 (°C)',
-                            data: simulatedTempHistory,
+                            label: 'Temp SENSOR-02 (°C)',
+                            data: chartData,
                             borderColor: '#f43f5e',
                             backgroundColor: 'rgba(244, 63, 94, 0.1)',
                             borderWidth: 2.5,
@@ -535,7 +525,7 @@
                         },
                         {
                             label: 'Límite Máximo Permitido (+4.0°C)',
-                            data: [4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0],
+                            data: [],
                             borderColor: '#71717a',
                             borderWidth: 1.5,
                             borderDash: [5, 5],
@@ -568,13 +558,12 @@
                             grid: { color: '#1e1e24' },
                             ticks: { color: '#71717a', font: { family: 'JetBrains Mono', size: 10 } },
                             min: 0,
-                            max: 16
+                            max: 20
                         }
                     }
                 }
             });
 
-            // Doughnut chart for Loss Breakdown
             const ctxLoss = document.getElementById('lossChart').getContext('2d');
             lossChartInstance = new Chart(ctxLoss, {
                 type: 'doughnut',
@@ -591,40 +580,143 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     cutout: '70%',
-                    plugins: {
-                        legend: { display: false }
-                    }
+                    plugins: { legend: { display: false } }
                 }
             });
         }
 
-        // Render Incidents Table
-        function renderTable(incidents) {
+        // Fetch Live Telemetry from BigQuery Hot Path
+        async function fetchLiveTelemetry() {
+            try {
+                const res = await fetch('/api/v1/telemetry/live?limit=10');
+                if (!res.ok) return;
+                const json = await res.json();
+                const records = json.data || [];
+
+                if (records.length > 0) {
+                    // Update connection badge
+                    document.getElementById('backend-status-badge').className = 'flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-950/40 border border-emerald-800/60 text-xs font-data text-emerald-400';
+                    document.getElementById('backend-status-text').innerText = 'API Conectada (BigQuery Live)';
+                    document.getElementById('last-update-tag').innerText = `Última sincronización: ${new Date().toLocaleTimeString()}`;
+
+                    // Find latest reading for SENSOR-02
+                    const latestS2 = records.find(r => r.device_id === 'SENSOR-02') || records[0];
+                    if (latestS2) {
+                        const temp = latestS2.temp_actual;
+                        const excess = +(temp - latestS2.temp_max).toFixed(1);
+                        const isAlert = temp > latestS2.temp_max;
+
+                        // Update Sensor 02 card
+                        document.getElementById('temp-sensor-02').innerText = `${temp > 0 ? '+' : ''}${temp}°C`;
+                        document.getElementById('diff-sensor-02').innerText = isAlert ? `Exceso: +${excess}°C (Límite: ${latestS2.temp_max}°C)` : `En rango (Límite: ${latestS2.temp_max}°C)`;
+                        document.getElementById('gauge-val-sensor-02').innerText = `${temp}°C (Actual)`;
+
+                        if (isAlert) {
+                            document.getElementById('card-sensor-02').className = 'card-zinc p-5 border-rose-800/80 bg-rose-950/15 relative overflow-hidden transition-all';
+                            document.getElementById('temp-sensor-02').className = 'text-3xl font-bold font-data text-rose-400';
+                            document.getElementById('badge-sensor-02').className = 'px-2 py-0.5 rounded text-[11px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30';
+                            document.getElementById('badge-sensor-02').innerText = 'ALERTA CRÍTICA';
+                            
+                            // Update Top Banner
+                            document.getElementById('active-alert-banner').style.display = 'flex';
+                            document.getElementById('banner-temp').innerText = `+${temp}°C`;
+                            document.getElementById('banner-excess').innerText = `+${excess}°C`;
+                            document.getElementById('banner-truck').innerText = latestS2.camara_almacen || 'Camión-Reparto-04';
+                            document.getElementById('banner-product').innerText = latestS2.producto || 'Carne Fresca';
+                        } else {
+                            document.getElementById('card-sensor-02').className = 'card-zinc p-5 border-zinc-800 bg-zinc-950/50 relative overflow-hidden transition-all';
+                            document.getElementById('temp-sensor-02').className = 'text-3xl font-bold font-data text-emerald-400';
+                            document.getElementById('badge-sensor-02').className = 'px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+                            document.getElementById('badge-sensor-02').innerText = 'NORMAL';
+                        }
+
+                        // Feed Line Chart with latest readings (reversed chronological order)
+                        const chartPoints = records.filter(r => r.device_id === 'SENSOR-02').reverse();
+                        if (chartPoints.length > 0) {
+                            chartLabels = chartPoints.map(p => {
+                                const d = new Date(p.timestamp);
+                                return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                            });
+                            chartData = chartPoints.map(p => p.temp_actual);
+
+                            tempChartInstance.data.labels = chartLabels;
+                            tempChartInstance.data.datasets[0].data = chartData;
+                            tempChartInstance.data.datasets[1].data = chartLabels.map(() => 4.0);
+                            tempChartInstance.update();
+                        }
+                    }
+                }
+            } catch (err) {
+                console.log('Telemetry fetch error:', err);
+            }
+        }
+
+        // Fetch Incidents from BigQuery Gold Layer
+        async function fetchIncidents() {
+            try {
+                const res = await fetch('/api/v1/incidents?limit=20');
+                if (!res.ok) return;
+                const json = await res.json();
+                rawIncidents = json.incidents || [];
+
+                // Update Total Financial Loss KPI
+                if (json.total_financial_loss_usd !== undefined) {
+                    const formattedLoss = '$' + json.total_financial_loss_usd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                    document.getElementById('kpi-loss').innerText = formattedLoss;
+                    document.getElementById('kpi-incident-count').innerText = `${json.total_incidents} incidentes registrados`;
+                }
+
+                filterIncidents();
+            } catch (err) {
+                console.log('Incidents fetch error:', err);
+            }
+        }
+
+        // Filter and Render Incidents Table
+        function filterIncidents() {
+            const filter = document.getElementById('severity-filter').value;
+            let displayList = rawIncidents;
+            if (filter !== 'ALL') {
+                displayList = rawIncidents.filter(i => (i.nivel_severidad || '').toUpperCase().includes(filter));
+            }
+
             const tbody = document.getElementById('incidents-table-body');
             tbody.innerHTML = '';
 
-            incidents.forEach(item => {
+            if (displayList.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="9" class="py-4 text-center text-zinc-500">No se encontraron incidentes con el filtro seleccionado.</td></tr>';
+                return;
+            }
+
+            displayList.slice(0, 8).forEach(item => {
                 const tr = document.createElement('tr');
-                tr.className = 'hover:bg-zinc-900/40 transition';
+                tr.className = 'hover:bg-zinc-900/60 transition';
                 
-                const badgeColor = item.severity === 'CRÍTICA' 
+                const sev = (item.nivel_severidad || 'CRÍTICA').toUpperCase();
+                const badgeColor = sev.includes('CRIT') 
                     ? 'bg-rose-500/20 text-rose-300 border-rose-500/30' 
-                    : (item.severity === 'MODERADA' ? 'bg-amber-500/20 text-amber-300 border-amber-500/30' : 'bg-blue-500/20 text-blue-300 border-blue-500/30');
+                    : (sev.includes('MOD') ? 'bg-amber-500/20 text-amber-300 border-amber-500/30' : 'bg-blue-500/20 text-blue-300 border-blue-500/30');
+
+                const shortId = (item.incidente_id || '').substring(0, 12);
+                const timeStr = item.timestamp ? item.timestamp.replace('T', ' ').substring(0, 19) : item.fecha;
+                const lossVal = typeof item.impacto_financiero_estimado === 'number' 
+                    ? item.impacto_financiero_estimado.toFixed(2) 
+                    : item.impacto_financiero_estimado;
 
                 tr.innerHTML = `
-                    <td class="py-2.5 px-3 font-semibold text-zinc-300 font-data">${item.id}</td>
-                    <td class="py-2.5 px-3 text-zinc-400">${item.timestamp}</td>
-                    <td class="py-2.5 px-3"><span class="font-bold text-white">${item.vehicle}</span> <span class="text-zinc-500">(${item.device})</span></td>
-                    <td class="py-2.5 px-3 text-zinc-300">${item.product}</td>
-                    <td class="py-2.5 px-3 text-right font-bold ${item.temp > item.limit ? 'text-rose-400' : 'text-emerald-400'}">${item.temp > 0 ? '+' : ''}${item.temp}°C / ${item.limit}°C</td>
-                    <td class="py-2.5 px-3 text-center text-rose-400 font-bold">+${item.diff}°C</td>
+                    <td class="py-2.5 px-3 font-semibold text-zinc-300 font-data">${shortId}</td>
+                    <td class="py-2.5 px-3 text-zinc-400 font-data">${timeStr}</td>
+                    <td class="py-2.5 px-3"><span class="font-bold text-white">${item.camara_almacen || 'Camión'}</span> <span class="text-zinc-500">(${item.device_id})</span></td>
+                    <td class="py-2.5 px-3 text-zinc-300">${item.product_id === 'PROD-02' ? 'Carne Fresca' : (item.product_id === 'PROD-01' ? 'Vacunas ARN' : item.product_id)}</td>
+                    <td class="py-2.5 px-3 text-right font-bold text-rose-400 font-data">+${item.temp_registrada}°C / ${item.temp_limite}°C</td>
+                    <td class="py-2.5 px-3 text-center text-rose-400 font-bold font-data">+${item.desviacion_grados}°C</td>
                     <td class="py-2.5 px-3 text-center">
-                        <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${badgeColor}">${item.severity}</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${badgeColor}">${sev}</span>
                     </td>
-                    <td class="py-2.5 px-3 text-right font-bold text-rose-400">$${item.loss.toFixed(2)}</td>
+                    <td class="py-2.5 px-3 text-right font-bold text-rose-400 font-data">$${lossVal} USD</td>
                     <td class="py-2.5 px-3 text-center">
                         <button onclick="executePrescriptiveAction('reroute')" class="px-2 py-1 bg-zinc-800 hover:bg-zinc-700 text-[10px] rounded text-zinc-200 transition">
-                            Acción ➔
+                            Desviar ➔
                         </button>
                     </td>
                 `;
@@ -632,79 +724,79 @@
             });
         }
 
-        function filterIncidents() {
-            const filter = document.getElementById('severity-filter').value;
-            if (filter === 'ALL') {
-                renderTable(mockIncidents);
-            } else {
-                renderTable(mockIncidents.filter(i => i.severity === filter));
-            }
-        }
+        // In-Browser Live Anomaly Trigger
+        async function triggerSimulatedIncidentWeb() {
+            const btn = document.getElementById('btn-simulate-web');
+            btn.disabled = true;
+            btn.innerHTML = '<span>⏳ Inyectando a GCP...</span>';
 
-        // Prescriptive action handler
-        function executePrescriptiveAction(action) {
-            if (action === 'reroute') {
-                alert('🚨 ORDEN PRESCRIPTIVA ENVIADA A CABINA:\n\n• Destino alternativo: Cámara Frigorífica de Contingencia (Km 45).\n• Notificación despachada a: Juan Perez (Chofer).\n• Estado en GCP: Desvío en progreso.');
-            } else if (action === 'quarantine') {
-                alert('🔒 ACCIÓN ERP / WMS COMPLETADA:\n\n• Lote de SENSOR-02 puesto en estado CUARENTENA.\n• Bloqueada la emisión de guías de remisión.\n• Alerta enviada a Control de Calidad.');
-            }
-        }
+            const dynamicTemp = +(14.0 + Math.random() * 3.5).toFixed(1);
+            const payload = {
+                device_id: 'SENSOR-02',
+                temperature: dynamicTemp,
+                humidity: +(68.0 + Math.random() * 8).toFixed(1),
+                battery_pct: 90,
+                timestamp: new Date().toISOString()
+            };
 
-        // Live API Fetcher with Fallback
-        async function fetchLiveTelemetry() {
             try {
-                const response = await fetch('/api/v1/telemetry/live?limit=5');
-                if (response.ok) {
-                    const data = await response.json();
-                    document.getElementById('backend-status-badge').className = 'flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-950/40 border border-emerald-800/60 text-xs font-data text-emerald-400';
-                    document.getElementById('backend-status-text').innerText = 'API Conectada (En Vivo)';
+                const res = await fetch('/api/v1/telemetry/ingest', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (res.ok) {
+                    const result = await res.json();
+                    btn.innerHTML = '<span>✅ ¡Enviado a Pub/Sub!</span>';
+                    
+                    // Trigger refresh immediately and then again after BigQuery Direct Ingestion window
+                    await fetchLiveTelemetry();
+                    setTimeout(async () => {
+                        await fetchLiveTelemetry();
+                        await fetchIncidents();
+                        btn.disabled = false;
+                        btn.innerHTML = '<span>⚡ Inyectar Alerta Demo</span>';
+                    }, 3500);
+                } else {
+                    throw new Error('API Ingest error');
                 }
             } catch (err) {
-                // If backend is not serving this origin, keep mock display active
-                console.log('API backend live query mode:', err.message);
+                console.log('Error triggering anomaly via web:', err);
+                btn.disabled = false;
+                btn.innerHTML = '<span>⚡ Inyectar Alerta Demo</span>';
             }
         }
 
-        function triggerSimulatedIncident() {
-            const newTemp = +(14.0 + Math.random() * 2).toFixed(1);
-            simulatedTempHistory.push(newTemp);
-            simulatedTimeLabels.push(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
-            
-            if (simulatedTempHistory.length > 9) {
-                simulatedTempHistory.shift();
-                simulatedTimeLabels.shift();
+        function executePrescriptiveAction(action) {
+            if (action === 'reroute') {
+                alert('🚨 ORDEN PRESCRIPTIVA ENVIADA A CABINA:\n\n• Desvío a Cámara Fría de Contingencia autorizada (Km 45).\n• Notificación despachada a chofer: Juan Perez.\n• El estado en el WMS ha cambiado a: DESVÍO EN PROCESO.');
+            } else {
+                alert('🔒 ACCIÓN WMS/ERP CONFIRMADA:\n\n• Lote del SENSOR-02 puesto en estado CUARENTENA.\n• Bloqueada la emisión de guías de despacho.\n• Alerta enviada a Control de Calidad.');
             }
-
-            tempChartInstance.update();
-
-            const newLoss = +(newTemp * 95).toFixed(2);
-            mockIncidents.unshift({
-                id: Math.random().toString(16).substring(2, 14),
-                timestamp: new Date().toISOString().replace('T', ' ').substring(0, 19),
-                device: 'SENSOR-02',
-                vehicle: 'Camión-Reparto-04',
-                product: 'Carne Fresca',
-                temp: newTemp,
-                limit: 4.0,
-                diff: +(newTemp - 4.0).toFixed(1),
-                severity: 'CRÍTICA',
-                loss: newLoss
-            });
-
-            filterIncidents();
-            alert(`⚠️ ALERTA DISPARADA:\nSENSOR-02 registró ${newTemp}°C. Pérdida calculada: $${newLoss} USD.`);
         }
 
-        function refreshData() {
+        async function manualRefresh() {
+            const spinner = document.getElementById('refresh-spinner');
+            spinner.classList.add('animate-spin');
+            await fetchLiveTelemetry();
+            await fetchIncidents();
+            setTimeout(() => spinner.classList.remove('animate-spin'), 600);
+        }
+
+        // Master Polling Loop (Every 3 seconds)
+        function startAutoPolling() {
             fetchLiveTelemetry();
-            filterIncidents();
+            fetchIncidents();
+            autoPollingInterval = setInterval(() => {
+                fetchLiveTelemetry();
+                fetchIncidents();
+            }, 3000);
         }
 
-        // Window onload
         window.addEventListener('DOMContentLoaded', () => {
             initCharts();
-            filterIncidents();
-            fetchLiveTelemetry();
+            startAutoPolling();
         });
     </script>
 </body>
