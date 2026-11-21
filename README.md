@@ -99,8 +99,10 @@ iot-coldchain/
 ├── informe/
 │   ├── INFORME_FINAL_PROYECTO_IOT.md   # Informe técnico formal maestro (>920 líneas)
 │   ├── INFORME_FINAL_PROYECTO_IOT.html # Versión web del informe con Mermaid
+│   ├── ARQUITECTURA_DETALLADA_Y_FAQ.md # Dossier de Arquitectura, Objetivos, Solución, Demo y FAQ
 │   ├── SLIDES_SUSTENTACION.md         # Diapositivas de sustentación en Markdown
-│   └── SLIDES_SUSTENTACION.html       # Presentación interactiva de diapositivas
+│   ├── SLIDES_SUSTENTACION.html       # Presentación interactiva de diapositivas
+│   └── SPEECH_SUSTENTACION.md         # Guion oral palabra por palabra para la defensa
 ├── iot_simulator.py               # Simulador de sensores IoT con inyección de anomalías
 ├── pipelines/
 │   ├── batch_pipeline.py          # Orquestador Python de transformaciones ELT
@@ -193,15 +195,20 @@ python demo/demo_e2e.py
 
 En la carpeta [`informe/`](informe/) se encuentran los documentos finales para evaluación y defensa:
 
+* **[ARQUITECTURA_DETALLADA_Y_FAQ.md](informe/ARQUITECTURA_DETALLADA_Y_FAQ.md):** Dossier técnico de ingeniería con arquitectura detallada, objetivos, resolución de negocio As-Is vs To-Be, trazas de la demo end-to-end y banco maestro de preguntas (FAQ / FQQ).
 * **[INFORME_FINAL_PROYECTO_IOT.md](informe/INFORME_FINAL_PROYECTO_IOT.md):** Memoria técnica formal de más de 920 líneas con marco regulatorio (OMS / FDA 21 CFR Part 11), diccionario de datos y evidencias.
 * **[SLIDES_SUSTENTACION.md](informe/SLIDES_SUSTENTACION.md):** Diapositivas de sustentación en Markdown con los 10 bullets solicitados.
 * **[SLIDES_SUSTENTACION.html](informe/SLIDES_SUSTENTACION.html):** Pitch deck interactivo navegable con flechas de teclado y listo para proyectar o imprimir en PDF.
+* **[SPEECH_SUSTENTACION.md](informe/SPEECH_SUSTENTACION.md):** Guion de sustentación oral palabra por palabra con tiempos y guía de preguntas del jurado.
 
 ---
 
 ### Instrucciones para Descargar desde Cloud Shell:
 ```bash
-# Descargar el informe técnico:
+# Descargar el dossier de arquitectura y FAQ:
+cloudshell download /home/gsoto1872/iot-coldchain/informe/ARQUITECTURA_DETALLADA_Y_FAQ.md
+
+# Descargar el informe técnico maestro:
 cloudshell download /home/gsoto1872/iot-coldchain/informe/INFORME_FINAL_PROYECTO_IOT.md
 
 # Descargar las diapositivas de sustentación:
@@ -209,4 +216,7 @@ cloudshell download /home/gsoto1872/iot-coldchain/informe/SLIDES_SUSTENTACION.md
 
 # Descargar las diapositivas interactivas en HTML:
 cloudshell download /home/gsoto1872/iot-coldchain/informe/SLIDES_SUSTENTACION.html
+
+# Descargar el speech oral:
+cloudshell download /home/gsoto1872/iot-coldchain/informe/SPEECH_SUSTENTACION.md
 ```
