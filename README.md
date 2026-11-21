@@ -99,6 +99,7 @@ iot-coldchain/
 ├── informe/
 │   ├── INFORME_FINAL_PROYECTO_IOT.md   # Informe técnico formal maestro (>920 líneas)
 │   ├── INFORME_FINAL_PROYECTO_IOT.html # Versión web del informe con Mermaid
+│   ├── GUIA_EJECUCION_DEMO_Y_VALIDACION_WEB.md # Guía paso a paso de ejecución de Demo y validación Web
 │   ├── ARQUITECTURA_DETALLADA_Y_FAQ.md # Dossier de Arquitectura, Objetivos, Solución, Demo y FAQ
 │   ├── SLIDES_SUSTENTACION.md         # Diapositivas de sustentación en Markdown
 │   ├── SLIDES_SUSTENTACION.html       # Presentación interactiva de diapositivas
@@ -195,6 +196,7 @@ python demo/demo_e2e.py
 
 En la carpeta [`informe/`](informe/) se encuentran los documentos finales para evaluación y defensa:
 
+* **[GUIA_EJECUCION_DEMO_Y_VALIDACION_WEB.md](informe/GUIA_EJECUCION_DEMO_Y_VALIDACION_WEB.md):** Guía paso a paso para ejecutar la demostración funcional en vivo y validarla en la web (Swagger UI, BigQuery Studio y Pub/Sub).
 * **[ARQUITECTURA_DETALLADA_Y_FAQ.md](informe/ARQUITECTURA_DETALLADA_Y_FAQ.md):** Dossier técnico de ingeniería con arquitectura detallada, objetivos, resolución de negocio As-Is vs To-Be, trazas de la demo end-to-end y banco maestro de preguntas (FAQ / FQQ).
 * **[INFORME_FINAL_PROYECTO_IOT.md](informe/INFORME_FINAL_PROYECTO_IOT.md):** Memoria técnica formal de más de 920 líneas con marco regulatorio (OMS / FDA 21 CFR Part 11), diccionario de datos y evidencias.
 * **[SLIDES_SUSTENTACION.md](informe/SLIDES_SUSTENTACION.md):** Diapositivas de sustentación en Markdown con los 10 bullets solicitados.
@@ -204,6 +206,9 @@ En la carpeta [`informe/`](informe/) se encuentran los documentos finales para e
 ---
 ### Instrucciones para Descargar desde Cloud Shell:
 ```bash
+# Descargar la guía de ejecución de la demo y validación web:
+cloudshell download /home/gsoto1872/iot-coldchain/informe/GUIA_EJECUCION_DEMO_Y_VALIDACION_WEB.md
+
 # Descargar el dossier de arquitectura y FAQ:
 cloudshell download /home/gsoto1872/iot-coldchain/informe/ARQUITECTURA_DETALLADA_Y_FAQ.md
 
