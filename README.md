@@ -202,7 +202,6 @@ En la carpeta [`informe/`](informe/) se encuentran los documentos finales para e
 * **[SPEECH_SUSTENTACION.md](informe/SPEECH_SUSTENTACION.md):** Guion de sustentación oral palabra por palabra con tiempos y guía de preguntas del jurado.
 
 ---
-
 ### Instrucciones para Descargar desde Cloud Shell:
 ```bash
 # Descargar el dossier de arquitectura y FAQ:
