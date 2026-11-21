@@ -67,7 +67,7 @@
             background: var(--bg-card);
             border-radius: 16px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85);
-            padding: 32px 48px;
+            padding: 30px 46px;
             overflow-y: auto;
             border: 1px solid var(--border-color);
             display: none;
@@ -91,16 +91,16 @@
             justify-content: space-between;
             align-items: flex-start;
             border-bottom: 2px solid var(--border-color);
-            padding-bottom: 12px;
-            margin-bottom: 18px;
+            padding-bottom: 10px;
+            margin-bottom: 16px;
         }
 
         h1 { font-size: 2.1em; color: var(--accent-cyan); font-weight: 800; line-height: 1.2; letter-spacing: -0.5px; }
-        h2 { font-size: 1.55em; color: var(--accent-cyan); font-weight: 700; }
-        h3 { font-size: 1.15em; color: var(--text-secondary); font-weight: 600; margin-bottom: 10px; }
-        p, li { font-size: 0.96em; line-height: 1.55; color: #cbd5e1; }
-        ul { margin-left: 20px; margin-bottom: 10px; }
-        li { margin-bottom: 6px; }
+        h2 { font-size: 1.45em; color: var(--accent-cyan); font-weight: 700; }
+        h3 { font-size: 1.1em; color: var(--text-secondary); font-weight: 600; margin-bottom: 8px; }
+        p, li { font-size: 0.94em; line-height: 1.55; color: #cbd5e1; }
+        ul { margin-left: 20px; margin-bottom: 8px; }
+        li { margin-bottom: 5px; }
 
         /* Badges y Etiquetas */
         .badge {
@@ -119,15 +119,15 @@
         .badge-purple { background: rgba(139, 92, 246, 0.2); color: #a78bfa; border: 1px solid #8b5cf6; }
 
         /* Layouts de Tarjetas Grid */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 12px 0; }
-        .grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 10px 0; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 10px 0; }
+        .grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 10px 0; }
 
         .card {
             background: var(--bg-card-sub);
             border: 1px solid var(--border-color);
             border-radius: 10px;
-            padding: 16px 20px;
+            padding: 14px 18px;
             display: flex;
             flex-direction: column;
             transition: border-color 0.2s;
@@ -143,37 +143,37 @@
             background: #0d1527;
             border: 1px solid var(--border-color);
             border-radius: 10px;
-            padding: 14px 16px;
+            padding: 12px 14px;
             text-align: center;
             position: relative;
         }
-        .kpi-val { font-size: 1.8em; font-weight: 800; color: #ffffff; margin: 4px 0; }
-        .kpi-label { font-size: 0.82em; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; }
-        .kpi-sub { font-size: 0.78em; color: var(--text-muted); margin-top: 4px; }
+        .kpi-val { font-size: 1.7em; font-weight: 800; color: #ffffff; margin: 3px 0; }
+        .kpi-label { font-size: 0.8em; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; }
+        .kpi-sub { font-size: 0.76em; color: var(--text-muted); margin-top: 3px; }
 
         /* Tablas de Alta Densidad */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 12px 0;
-            font-size: 0.86em;
+            margin: 10px 0;
+            font-size: 0.85em;
             background: var(--bg-card-sub);
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid var(--border-color);
         }
-        th, td { padding: 9px 13px; text-align: left; border: 1px solid var(--border-color); }
-        th { background: #0c4a6e; color: #ffffff; font-weight: 700; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.5px; }
+        th, td { padding: 8px 12px; text-align: left; border: 1px solid var(--border-color); }
+        th { background: #0c4a6e; color: #ffffff; font-weight: 700; text-transform: uppercase; font-size: 0.78em; letter-spacing: 0.5px; }
         tr:nth-child(even) { background-color: #0d1527; }
         tr:hover { background-color: rgba(56, 189, 248, 0.05); }
 
         /* Contenedor Mermaid */
         .mermaid {
             background: #0d1527 !important;
-            padding: 14px;
+            padding: 12px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
-            margin: 10px 0;
+            margin: 8px 0;
             text-align: center;
             overflow-x: auto;
         }
@@ -181,15 +181,15 @@
         /* Bloques de Código */
         pre {
             background: #050811;
-            padding: 12px 16px;
+            padding: 10px 14px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
             color: #7dd3fc;
             font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-            font-size: 0.82em;
-            line-height: 1.45;
+            font-size: 0.8em;
+            line-height: 1.4;
             overflow-x: auto;
-            margin: 8px 0;
+            margin: 6px 0;
         }
 
         /* Drawer de Notas del Orador (Speaker Notes) */
@@ -200,10 +200,10 @@
             right: 0;
             background: #020617;
             border-top: 3px solid var(--accent-cyan);
-            padding: 16px 26px;
+            padding: 14px 24px;
             border-bottom-left-radius: 16px;
             border-bottom-right-radius: 16px;
-            box-shadow: 0 -12px 30px rgba(0,0,0,0.8);
+            box-shadow: 0 -12px 30px rgba(0,0,0,0.85);
             display: none;
             z-index: 100;
             max-height: 48%;
@@ -212,19 +212,19 @@
         .speaker-notes-drawer.open { display: block; animation: slideUpDrawer 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
         @keyframes slideUpDrawer { from { transform: translateY(100%); } to { transform: translateY(0); } }
 
-        .notes-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-        .notes-title { color: var(--accent-cyan); font-weight: 800; font-size: 0.88em; text-transform: uppercase; letter-spacing: 1px; }
-        .notes-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 18px; margin-top: 8px; }
-        .notes-speech { color: #f1f5f9; font-size: 0.94em; line-height: 1.6; font-style: normal; border-left: 3px solid var(--accent-green); padding-left: 12px; }
-        .notes-qa { background: #0b1120; padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border-color); }
-        .notes-qa h4 { color: var(--accent-amber); font-size: 0.85em; margin-bottom: 4px; }
-        .notes-qa p { font-size: 0.84em; color: #cbd5e1; line-height: 1.4; }
+        .notes-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+        .notes-title { color: var(--accent-cyan); font-weight: 800; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; }
+        .notes-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-top: 6px; }
+        .notes-speech { color: #f1f5f9; font-size: 0.92em; line-height: 1.55; font-style: normal; border-left: 3px solid var(--accent-green); padding-left: 12px; }
+        .notes-qa { background: #0b1120; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border-color); }
+        .notes-qa h4 { color: var(--accent-amber); font-size: 0.82em; margin-bottom: 3px; }
+        .notes-qa p { font-size: 0.8em; color: #cbd5e1; line-height: 1.35; }
 
         /* Barra de Navegación */
         .nav-bar {
             width: 94vw;
             max-width: 1320px;
-            margin-top: 12px;
+            margin-top: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -235,10 +235,10 @@
             background-color: var(--accent-blue);
             color: #ffffff;
             border: none;
-            padding: 7px 15px;
+            padding: 6px 14px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 0.88em;
+            font-size: 0.86em;
             font-weight: 600;
             transition: all 0.15s ease;
             outline: none;
@@ -252,17 +252,15 @@
             background: #0f172a;
             color: #f8fafc;
             border: 1px solid var(--border-color);
-            padding: 6px 12px;
-            font-size: 0.86em;
+            padding: 6px 10px;
+            font-size: 0.84em;
             cursor: pointer;
         }
 
-        .progress-wrapper { flex: 1; margin: 0 20px; background: #1e293b; height: 6px; border-radius: 3px; overflow: hidden; }
+        .progress-wrapper { flex: 1; margin: 0 18px; background: #1e293b; height: 6px; border-radius: 3px; overflow: hidden; }
         .progress-bar { height: 100%; background: linear-gradient(90deg, #0284c7, #38bdf8); width: 8.33%; transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .slide-counter { font-size: 0.86em; color: var(--text-secondary); font-weight: 700; min-width: 110px; text-align: right; }
-
-        /* Atajos Guía flotante */
-        .keyboard-hint { font-size: 0.74em; color: var(--text-muted); margin-left: 8px; }
+        .slide-counter { font-size: 0.84em; color: var(--text-secondary); font-weight: 700; min-width: 110px; text-align: right; }
+        .keyboard-hint { font-size: 0.72em; color: var(--text-muted); margin-left: 6px; }
 
         /* Modo Impresión / PDF */
         @media print {
@@ -284,20 +282,20 @@
 
         <!-- SLIDE 1: PORTADA EJECUTIVA -->
         <div class="slide active" id="slide-1">
-            <div style="text-align:center; margin-top:20px;">
-                <div style="display:flex; justify-content:center; gap:8px; margin-bottom:14px;">
+            <div style="text-align:center; margin-top:16px;">
+                <div style="display:flex; justify-content:center; gap:8px; margin-bottom:12px;">
                     <span class="badge badge-info">Google Cloud Platform</span>
                     <span class="badge badge-success">Data Lakehouse Medallion</span>
                     <span class="badge badge-purple">Procesamiento Híbrido</span>
                     <span class="badge badge-warning">Producción Verificada</span>
                 </div>
-                <h1 style="font-size:2.6em; margin-bottom:6px;">SMART COLD CHAIN IoT</h1>
-                <h2 style="font-size:1.4em; color:#38bdf8; font-weight:400; border:none; margin-bottom:18px;">
+                <h1 style="font-size:2.5em; margin-bottom:6px;">SMART COLD CHAIN IoT</h1>
+                <h2 style="font-size:1.35em; color:#38bdf8; font-weight:400; border:none; margin-bottom:16px;">
                     Arquitectura de Datos End-to-End, Ingesta Streaming Serverless y Liquidación de Riesgo Térmico
                 </h2>
             </div>
 
-            <div class="grid-3" style="margin-top:10px;">
+            <div class="grid-3" style="margin-top:8px;">
                 <div class="card card-cyan">
                     <h3>🏢 Identificación del Proyecto</h3>
                     <p><strong>GCP Project ID:</strong> <code>myfirstproject-508413</code></p>
@@ -321,84 +319,84 @@
                 </div>
             </div>
 
-            <div style="background:#0f172a; border-left:4px solid var(--accent-green); padding:14px 20px; border-radius:8px; margin-top:18px; text-align:center;">
-                <p style="font-style:italic; font-size:1.02em; color:#f1f5f9;">
-                    "De sensores ciegos a decisiones prescriptivas: transformando mediciones térmicas en liquidaciones monetarias automáticas en menos de 2 segundos."
+            <div style="background:#0f172a; border-left:4px solid var(--accent-green); padding:12px 18px; border-radius:8px; margin-top:14px; text-align:center;">
+                <p style="font-style:italic; font-size:1.0em; color:#f1f5f9;">
+                    "De sensores ciegos a decisiones prescriptivas: transformando variaciones de temperatura en liquidaciones monetarias automáticas en menos de 2 segundos."
                 </p>
             </div>
 
             <div class="speaker-notes-drawer" id="notes-1">
                 <div class="notes-header">
-                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Diapositiva 1</span>
-                    <span class="badge badge-info">Apertura (2 min)</span>
+                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Portada</span>
+                    <span class="badge badge-info">Apertura (1:30 min)</span>
                 </div>
                 <div class="notes-grid">
                     <div class="notes-speech">
-                        "Buenos días señores del jurado y profesor. Mi nombre es Guillermo Soto y tengo el agrado de presentar la sustentación de nuestro proyecto 'Smart Cold Chain IoT', una arquitectura de datos moderna de procesamiento híbrido desplegada íntegramente sobre Google Cloud Platform.<br><br>
-                        Este proyecto aborda una de las problemáticas operativas y financieras más críticas a nivel global: la pérdida masiva de medicamentos y alimentos sensibles por fallas térmicas durante el transporte. A lo largo de esta defensa demostraré cómo logramos capturar telemetría en tiempo real, enriquecerla con datos maestros del ERP, detectar anomalías en menos de 2 segundos y valorizar financieramente las pérdidas para auditoría contable, todo bajo un modelo Serverless con un costo mensual prácticamente nulo."
+                        "Buenos días señores miembros del jurado evaluador, profesor y compañeros. Mi nombre es Guillermo Soto y hoy tengo el honor de presentar la sustentación de nuestro proyecto 'Smart Cold Chain IoT: Arquitectura End-to-End y Procesamiento Híbrido en Google Cloud Platform'. Este proyecto aborda una de las fallas operacionales más destructivas del comercio global: la rotura de cadena de frío en biológicos y alimentos frescos. Demostraré cómo transformamos lecturas de hardware en decisiones prescriptivas inmediatas con latencia inferior a 2 segundos y liquidaciones contables en dólares bajo un modelo Serverless."
                     </div>
                     <div class="notes-qa">
                         <h4>🎯 Idea Clave a Destacar</h4>
-                        <p>No es un prototipo conceptual: es un sistema 100% funcional operando en el proyecto <code>myfirstproject-508413</code> de Google Cloud.</p>
+                        <p>Infraestructura viva y verificada en el proyecto <code>myfirstproject-508413</code> de GCP.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 2: 1. RESUMEN EJECUTIVO -->
+        <!-- SLIDE 2: 1. RESUMEN EJECUTIVO - ALCANCE DE LA MIGRACIÓN/IMPLEMENTACIÓN -->
         <div class="slide" id="slide-2">
             <div class="slide-header">
-                <h2>1. Resumen Ejecutivo - Alcance de la Implementación</h2>
-                <span class="badge badge-info">Alcance & Negocio</span>
+                <h2>1. Resumen ejecutivo - Alcance de la Migración/Implementación</h2>
+                <span class="badge badge-info">Punto 1 Oficial</span>
             </div>
 
             <div class="grid-3">
                 <div class="card card-red">
-                    <h3 style="color:#f87171;">El Problema Global</h3>
-                    <p><strong>$35 Mil Millones USD</strong> en pérdidas anuales en transporte de vacunas ARN, hemoderivados y perecederos.</p>
-                    <p style="margin-top:8px;">El <strong>80% de mermas</strong> ocurren en tránsito por falta de visibilidad activa ("caja negra" logística).</p>
-                    <p style="margin-top:8px;">Los <em>dataloggers</em> pasivos actuales solo permiten autopsias tardías al abrir el camión.</p>
+                    <h3 style="color:#f87171;">Alcance de la Migración</h3>
+                    <p><strong>Modernización de Infraestructura:</strong></p>
+                    <ul>
+                        <li>Migración desde arquitectura heredada local (dataloggers USB desconectados, silos en Excel y servidores on-premise).</li>
+                        <li><strong>Re-platforming Serverless:</strong> Eliminación del costo fijo de VMs dedicadas migrando a Pub/Sub y BigQuery.</li>
+                        <li>Desacoplamiento total de almacenamiento y cómputo.</li>
+                    </ul>
                 </div>
                 <div class="card card-cyan">
-                    <h3 style="color:#38bdf8;">El Alcance Desarrollado</h3>
-                    <p><strong>Integración Multifuente:</strong></p>
+                    <h3 style="color:#38bdf8;">Alcance de la Implementación</h3>
+                    <p><strong>Integración Multifuente Homogénea:</strong></p>
                     <ul>
                         <li><strong>Streaming IoT:</strong> 100 sensores enviando Temp, Humedad y Batería cada 10s vía Pub/Sub.</li>
-                        <li><strong>Batch ERP/WMS:</strong> Catálogos maestros de productos, umbrales permitidos y asignación de choferes.</li>
+                        <li><strong>Batch ERP/WMS:</strong> Catálogos maestros de productos, umbrales y asignación de choferes en Cloud Storage.</li>
+                        <li><strong>Data Lakehouse Medallion:</strong> Capas Bronze, Silver y Gold en BigQuery.</li>
                     </ul>
-                    <p><strong>Lakehouse Medallion:</strong> Bronze (crudo), Silver (calidad e idempotencia) y Gold (analítica financiera).</p>
                 </div>
                 <div class="card card-green">
-                    <h3 style="color:#34d399;">El Valor Entregado</h3>
-                    <p><strong>Procesamiento Híbrido:</strong></p>
+                    <h3 style="color:#34d399;">Procesamiento Híbrido</h3>
+                    <p><strong>Dual-Path Operacional & Analítico:</strong></p>
                     <ul>
-                        <li><strong>Hot Path (&lt; 2s):</strong> Alarma acústica/visual a cabina para desvío a cámara de contingencia.</li>
-                        <li><strong>Cold Path (Batch Diario):</strong> Liquidación contable en USD y auditoría forense para aseguradoras.</li>
+                        <li><strong>Hot Path (&lt; 2s):</strong> Alerta acústica/visual a cabina para desvío preventivo a cámara de frío.</li>
+                        <li><strong>Cold Path (Batch Diario):</strong> Deduplicación y cálculo contable de pérdidas en USD para aseguradoras.</li>
+                        <li><strong>Exposición REST API:</strong> Microservicio FastAPI con Swagger UI.</li>
                     </ul>
-                    <p><strong>Capa de Servicios:</strong> FastAPI con endpoints Swagger listos para integración B2B.</p>
                 </div>
             </div>
 
-            <div class="meta-box" style="background:#0f172a; padding:12px 18px; border-radius:8px; border-left:4px solid var(--accent-cyan); margin-top:10px;">
-                <p style="font-size:0.92em;">
-                    <strong>Diferenciador Estratégico:</strong> El sistema no solo emite una alarma por temperatura alta: realiza un cruce multifuente instantáneo para identificar el lote, el transportista responsable y el valor contable exacto en dólares de la mercadería en riesgo.
+            <div class="meta-box" style="background:#0f172a; padding:10px 16px; border-radius:8px; border-left:4px solid var(--accent-cyan); margin-top:8px;">
+                <p style="font-size:0.9em;">
+                    <strong>Diferenciador Estratégico:</strong> El sistema une la telemetría en streaming con los catálogos maestros del ERP: cuando hay sobrecalentamiento, identifica inmediatamente el lote, el conductor a cargo y el valor financiero exacto en dólares en riesgo.
                 </p>
             </div>
 
             <div class="speaker-notes-drawer" id="notes-2">
                 <div class="notes-header">
-                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Diapositiva 2</span>
-                    <span class="badge badge-info">Alcance Ejecutivo</span>
+                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Punto 1</span>
+                    <span class="badge badge-info">Resumen Ejecutivo</span>
                 </div>
                 <div class="notes-grid">
                     <div class="notes-speech">
-                        "El alcance de este proyecto fue diseñado para cerrar la brecha entre el hardware y el negocio. Tradicionalmente, la telemetría vive en silos técnicos desconectados del ERP comercial.<br><br>
-                        En nuestra arquitectura, cuando un sensor reporta 13.5°C, el dato no es solo un valor numérico; en vuelo se cruza con las tablas maestras y se sabe inmediatamente que es el Lote CARNE-001 en el Camión 04 a cargo del chofer Juan Perez, que el umbral máximo era 4°C y que la pérdida acumulada es de $1,187.50 dólares. Diseñamos un camino dual: el Hot Path alerta a cabina en 1.8 segundos para desviar el camión y salvar la carga, mientras el Cold Path liquida el siniestro para la compañía aseguradora."
+                        "El alcance de este proyecto abarca dos vertientes complementarias: la migración tecnológica desde sistemas legados y la implementación práctica de una arquitectura moderna de datos. A nivel de migración, trasladamos la operación desde servidores locales, bases relacionales tradicionales y dataloggers USB hacia un Data Lakehouse Serverless en Google Cloud Platform. A nivel de implementación, construimos una plataforma que une la telemetría de 100 sensores en streaming por Pub/Sub con los datos maestros del ERP, habilitando un Hot Path menor a 2 segundos para salvar la carga y un Cold Path batch para liquidar pérdidas contables."
                     </div>
                     <div class="notes-qa">
-                        <h4>❓ Pregunta Probable del Jurado</h4>
-                        <p><strong>¿Por qué unificar ERP y telemetría en BigQuery y no en la app cliente?</strong><br>
-                        Para asegurar una única fuente de verdad (Single Source of Truth) inmutable y auditada bajo normas farmacéuticas ALCOA+.</p>
+                        <h4>❓ Pregunta del Jurado</h4>
+                        <p><strong>¿Por qué unificar ERP y telemetría en BigQuery?</strong><br>Para garantizar una única fuente de verdad (Single Source of Truth) inmutable bajo normas ALCOA+.</p>
                     </div>
                 </div>
             </div>
@@ -407,8 +405,8 @@
         <!-- SLIDE 3: 2. SITUACIÓN ACTUAL -->
         <div class="slide" id="slide-3">
             <div class="slide-header">
-                <h2>2. Situación Actual: Diagnóstico As-Is vs To-Be</h2>
-                <span class="badge badge-warning">Diagnóstico Comparativo</span>
+                <h2>2. Situación actual</h2>
+                <span class="badge badge-warning">Punto 2 Oficial</span>
             </div>
 
             <table>
@@ -422,8 +420,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Monitoreo</strong></td>
-                        <td>Dataloggers pasivos USB. Descarga manual con PC al finalizar el viaje.</td>
+                        <td><strong>Mecanismo de Monitoreo</strong></td>
+                        <td>Datalogger pasivo USB. Descarga manual con PC al finalizar el viaje.</td>
                         <td>Telemetría continua por ráfagas vía <strong>Cloud Pub/Sub</strong>.</td>
                         <td><span class="badge badge-success">Visibilidad 100% activa</span></td>
                     </tr>
@@ -436,11 +434,11 @@
                     <tr>
                         <td><strong>Integración de Datos</strong></td>
                         <td>Silos aislados en hojas Excel. No se vincula al lote del ERP.</td>
-                        <td>Data Lakehouse con <strong>Star Schema</strong> que une sensores con ERP y chofer.</td>
+                        <td>Data Lakehouse con <strong>Star Schema</strong> que une telemetría con ERP y chofer.</td>
                         <td><span class="badge badge-success">Trazabilidad ALCOA+</span></td>
                     </tr>
                     <tr>
-                        <td><strong>Valoración del Daño</strong></td>
+                        <td><strong>Evaluación del Daño</strong></td>
                         <td>Estimaciones subjetivas, peritajes lentos y disputas legales.</td>
                         <td><strong>Liquidación algorítmica</strong> en USD en la Capa Gold.</td>
                         <td><span class="badge badge-success">Certeza jurídica inmediata</span></td>
@@ -454,38 +452,37 @@
                 </tbody>
             </table>
 
-            <div class="grid-2" style="margin-top:10px;">
-                <div class="card card-red" style="padding:10px 14px;">
-                    <p style="font-size:0.88em;"><strong>🔴 Consecuencia As-Is:</strong> El compresor falla en el km 100, la carga se descongela durante 8 horas, se descarga en destino arruinada: <strong>100% de pérdida financiera</strong>.</p>
+            <div class="grid-2" style="margin-top:8px;">
+                <div class="card card-red" style="padding:8px 12px;">
+                    <p style="font-size:0.86em;"><strong>🔴 Consecuencia As-Is:</strong> El compresor falla en el km 100, la carga se descongela durante 8 horas, se descarga en destino arruinada: <strong>100% de pérdida financiera</strong>.</p>
                 </div>
-                <div class="card card-green" style="padding:10px 14px;">
-                    <p style="font-size:0.88em;"><strong>🟢 Solución To-Be:</strong> Alerta en 1.8 segundos, chofer notificado, desvío prescriptivo al almacén frigorífico del km 120: <strong>Carga 100% rescatada</strong>.</p>
+                <div class="card card-green" style="padding:8px 12px;">
+                    <p style="font-size:0.86em;"><strong>🟢 Solución To-Be:</strong> Alerta en 1.8 segundos, chofer notificado, desvío prescriptivo al almacén frigorífico del km 120: <strong>Carga 100% rescatada</strong>.</p>
                 </div>
             </div>
 
             <div class="speaker-notes-drawer" id="notes-3">
                 <div class="notes-header">
-                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Diapositiva 3</span>
-                    <span class="badge badge-info">Diagnóstico de Negocio</span>
+                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Punto 2</span>
+                    <span class="badge badge-info">Situación Actual</span>
                 </div>
                 <div class="notes-grid">
                     <div class="notes-speech">
-                        "Para justificar la viabilidad del proyecto realizamos un análisis comparativo multidimensional. En el modelo tradicional As-Is, las empresas usan dataloggers pasivos USB. Esto no es control de calidad, es una autopsia forense: cuando el cliente abre el camión y descarga el USB, el producto ya se arruinó.<br><br>
-                        En nuestro modelo To-Be reemplazamos la reacción tardía por la prevención activa. Reducimos el tiempo de detección de semanas a menos de 2 segundos. Pero además transformamos la economía del monitoreo: en vez de pagar miles de dólares en servidores dedicados, operamos bajo arquitectura Serverless en GCP con una reducción del TCO superior al 99%."
+                        "Para entender la necesidad de esta transformación, analicemos la situación actual de la industria. Hoy más del 70% de operadores logísticos utilizan dataloggers pasivos USB. El camión viaja durante 15 horas, llega a destino, se extrae el USB y se descubre que hace 10 horas el furgón se calentó. Esto no es control de calidad, es una autopsia forense: el 100% del cargamento se destruye. En nuestro modelo To-Be, transformamos ese proceso en un control activo en tiempo real: en 1.8 segundos el conductor recibe la alerta en cabina, permitiendo desviarse a una cámara fría y salvar la carga."
                     </div>
                     <div class="notes-qa">
                         <h4>💡 Argumento de Venta</h4>
-                        <p>El valor del proyecto no está en el sensor de hardware, sino en salvar cargamentos que valen más de $50,000 USD con una alerta de $0.0001 USD.</p>
+                        <p>El valor del proyecto no está en el sensor de hardware, sino en salvar cargamentos de $50,000 USD con una alerta en la nube.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 4: 3. CRITERIOS DE ÉXITO (KPIs) -->
+        <!-- SLIDE 4: 3. CRITERIOS DE ÉXITO, PERFORMANCE, EN FORMATO KPI -->
         <div class="slide" id="slide-4">
             <div class="slide-header">
-                <h2>3. Criterios de Éxito y Rendimiento (Formato KPI)</h2>
-                <span class="badge badge-success">Métricas & Evaluación</span>
+                <h2>3. Criterios de éxito, performance, en formato KPI</h2>
+                <span class="badge badge-success">Punto 3 Oficial</span>
             </div>
 
             <div class="grid-6">
@@ -527,38 +524,34 @@
                 </div>
             </div>
 
-            <div class="meta-box" style="background:#0f172a; padding:12px 18px; border-radius:8px; border-left:4px solid var(--accent-green); margin-top:8px;">
-                <p style="font-size:0.9em;">
-                    <strong>Conclusión de Rendimiento:</strong> Todos los KPIs de diseño fueron cumplidos o superados holgadamente en el entorno real de Google Cloud (<code>us-central1</code>). La optimización física del almacenamiento columnar en BigQuery permitió tiempos de respuesta de consulta de 600 ms escaneando únicamente las particiones del día.
+            <div class="meta-box" style="background:#0f172a; padding:10px 16px; border-radius:8px; border-left:4px solid var(--accent-green); margin-top:8px;">
+                <p style="font-size:0.88em;">
+                    <strong>Validación de Ingeniería:</strong> Todos los KPIs de rendimiento fueron validados en el proyecto activo de GCP (`myfirstproject-508413`). La optimización física en BigQuery redujo las consultas de auditoría a 600 ms mediante escaneo exclusivo de las particiones del día evaluado.
                 </p>
             </div>
 
             <div class="speaker-notes-drawer" id="notes-4">
                 <div class="notes-header">
-                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Diapositiva 4</span>
-                    <span class="badge badge-info">Validación Cuantitativa</span>
+                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Punto 3</span>
+                    <span class="badge badge-info">Criterios de Éxito</span>
                 </div>
                 <div class="notes-grid">
                     <div class="notes-speech">
-                        "Para evaluar técnicamente la plataforma establecimos seis KPIs rigurosos. Me gustaría destacar tres resultados fundamentales:<br><br>
-                        Primero, en la dimensión operacional, logramos una latencia de alerta de **1.8 segundos**, superando holgadamente la meta de 3 segundos.<br>
-                        Segundo, en calidad del dato, alcanzamos un **100% de deduplicación determinística** en Silver gracias al uso de funciones analíticas de ventana sobre el par `device_id` y `timestamp`, asegurando que no existan cobros dobles de seguros.<br>
-                        Tercero, en la dimensión de performance, el particionado diario y clustering en BigQuery redujo las consultas de auditoría a tan solo **600 milisegundos**."
+                        "Para evaluar el proyecto con rigor de ingeniería, definimos seis KPIs en un cuadro de mando integral. Destaco tres resultados determinantes: primero, la latencia en el Hot Path alcanzó 1.8 segundos, superando holgadamente la meta de 3 segundos; segundo, logramos una deduplicación determinística del 100% en la Capa Silver mediante ROW_NUMBER(), garantizando que ninguna aseguradora pague dos veces por reintentos de red móvil; y tercero, la optimización física en BigQuery redujo las consultas de auditoría a tan solo 600 milisegundos a cero dólares de costo en laboratorio."
                     </div>
                     <div class="notes-qa">
-                        <h4>❓ Pregunta Probable del Jurado</h4>
-                        <p><strong>¿Cómo midieron la latencia de 1.8 segundos?</strong><br>
-                        Cronometrando desde el timestamp del evento en el simulador hasta la confirmación de la vista `v_alertas_cadena_frio` en BigQuery.</p>
+                        <h4>❓ Pregunta del Jurado</h4>
+                        <p><strong>¿Cómo midieron la latencia de 1.8s?</strong><br>Cronometrando desde el timestamp del evento en el sensor hasta la confirmación de la vista `v_alertas_cadena_frio` en BigQuery.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 5: 4. PRODUCTOS TECNOLÓGICOS -->
+        <!-- SLIDE 5: 4. PRODUCTOS TECNOLÓGICOS A USAR -->
         <div class="slide" id="slide-5">
             <div class="slide-header">
-                <h2>4. Productos Tecnológicos a Usar (Stack & Justificación)</h2>
-                <span class="badge badge-info">Arquitectura & Herramientas</span>
+                <h2>4. Productos tecnológicos a usar</h2>
+                <span class="badge badge-info">Punto 4 Oficial</span>
             </div>
 
             <div class="mermaid">
@@ -609,29 +602,26 @@
 
             <div class="speaker-notes-drawer" id="notes-5">
                 <div class="notes-header">
-                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Diapositiva 5</span>
-                    <span class="badge badge-info">Defensa del Stack</span>
+                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Punto 4</span>
+                    <span class="badge badge-info">Stack Tecnológico</span>
                 </div>
                 <div class="notes-grid">
                     <div class="notes-speech">
-                        "La selección tecnológica respondió a una regla de oro: máxima resiliencia con el mínimo costo operativo y de mantenimiento.<br><br>
-                        Descartamos de entrada soluciones pesadas como clústeres de Apache Kafka o Dataflow. ¿Por qué? Porque pagar instancias virtuales dedicadas encendidas 24/7 para recibir ráfagas esporádicas de sensores destruye el modelo financiero de cualquier proyecto IoT. En su lugar, utilizamos la característica de **BigQuery Direct Ingestion**: Pub/Sub deposita los eventos en la tabla Bronze de forma serverless en 2 segundos.<br>
-                        A nivel de seguridad, aplicamos el principio de menor privilegio: el sensor solo tiene una Service Account con rol de publicación, garantizando que jamás pueda leer o alterar la base de datos."
+                        "El stack tecnológico fue seleccionado bajo el criterio de máxima resiliencia con el menor costo de mantenimiento. Elegimos Google Cloud Pub/Sub con BigQuery Direct Ingestion para eliminar de raíz los servidores intermediarios: los eventos viajan directamente a la tabla Bronze de BigQuery en 2 segundos, ahorrando cientos de dólares en workers de computación o brokers de Kafka. En el almacenamiento, BigQuery absorbe millones de escrituras concurrentes sin contención de bloqueos relacionales. Y protegemos la infraestructura con Cloud IAM bajo el principio de menor privilegio, exponiendo los datos mediante FastAPI."
                     </div>
                     <div class="notes-qa">
-                        <h4>❓ Pregunta Probable del Jurado</h4>
-                        <p><strong>¿Por qué no usaron Firebase o Firestore?</strong><br>
-                        Firestore está optimizado para documentos transaccionales NoSQL, pero su costo de lectura y sus limitaciones analíticas lo hacen inviable para analítica de series temporales masivas frente a BigQuery.</p>
+                        <h4>❓ Pregunta del Jurado</h4>
+                        <p><strong>¿Por qué no usar Firebase Firestore?</strong><br>Firestore no permite consultas analíticas complejas ni agregaciones OLAP de series temporales masivas como BigQuery.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 6: 5. DEPENDENCIAS Y SUPUESTOS -->
+        <!-- SLIDE 6: 5. DEPENDENCIAS/SUPUESTOS O FUERA DE SCOPE -->
         <div class="slide" id="slide-6">
             <div class="slide-header">
-                <h2>5. Dependencias, Supuestos y Fuera de Scope (Riesgos)</h2>
-                <span class="badge badge-warning">Gobernanza & Alcance</span>
+                <h2>5. Dependencias/supuestos o fuera de scope</h2>
+                <span class="badge badge-warning">Punto 5 Oficial</span>
             </div>
 
             <table>
@@ -685,19 +675,16 @@
 
             <div class="speaker-notes-drawer" id="notes-6">
                 <div class="notes-header">
-                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Diapositiva 6</span>
-                    <span class="badge badge-info">Gestión de Riesgos</span>
+                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Punto 5</span>
+                    <span class="badge badge-info">Gobernanza & Riesgos</span>
                 </div>
                 <div class="notes-grid">
                     <div class="notes-speech">
-                        "Todo proyecto de ingeniería robusto debe delimitar con claridad sus fronteras técnicas. En esta lámina exponemos cómo gestionamos las dependencias críticas y los supuestos del sistema.<br><br>
-                        El principal riesgo físico es la pérdida de cobertura celular. Diseñamos la arquitectura para ser completamente tolerante a desconexiones: el dispositivo almacena lecturas en buffer local y, al recuperar señal, envía 2,000 eventos en bloque. Pub/Sub absorbe el pico elásticamente y nuestro pipeline SQL en la capa Silver se encarga de ordenarlos cronológicamente y eliminar duplicados.<br>
-                        Asimismo, delimitamos claramente el alcance dejando fuera la manufactura física de circuitos para concentrarnos en la arquitectura analítica en la nube."
+                        "Para gestionar los riesgos reales del proyecto definimos con claridad dependencias, supuestos y fronteras. El principal riesgo es la pérdida de señal celular en ruta. Lo mitigamos haciendo que el gateway almacene lecturas en memoria local durante los cortes y descargue en ráfagas al recuperar señal: Pub/Sub absorbe el impacto elásticamente y Silver deduplica sin distorsionar la serie temporal. Además, colocalizamos todos los recursos en la región `us-central1`, garantizando tráfico de red a cero dólares. Y dejamos conscientemente fuera de alcance la soldadura física de circuitos para concentrarnos en la ingeniería analítica en la nube."
                     </div>
                     <div class="notes-qa">
-                        <h4>❓ Pregunta Probable del Jurado</h4>
-                        <p><strong>¿Qué pasa si un sensor falla y envía una temperatura de 1,000°C?</strong><br>
-                        La Capa Silver aplica un filtro de validez biofísica (-50°C a 60°C), marcando o descartando la lectura como anomalía de sensor antes de que llegue a la Capa Gold.</p>
+                        <h4>❓ Pregunta del Jurado</h4>
+                        <p><strong>¿Qué pasa con lecturas absurdas como 500°C?</strong><br>La Capa Silver aplica un filtro biofísico (-50°C a +60°C) aislando el registro en cuarentena.</p>
                     </div>
                 </div>
             </div>
@@ -706,8 +693,8 @@
         <!-- SLIDE 7: 6. ARQUITECTURA FINAL -->
         <div class="slide" id="slide-7">
             <div class="slide-header">
-                <h2>6. Arquitectura Final: Data Lakehouse Medallion</h2>
-                <span class="badge badge-purple">Diseño End-to-End</span>
+                <h2>6. Arquitectura final: (la arquitectura que generará la estimación de consumo del primer año)</h2>
+                <span class="badge badge-purple">Punto 6 Oficial</span>
             </div>
 
             <div class="mermaid">
@@ -750,32 +737,29 @@
             </div>
 
             <div class="grid-3" style="margin-top:6px;">
-                <div class="card card-cyan" style="padding:10px 14px;">
-                    <p style="font-size:0.86em;"><strong>🥉 Capa Bronze:</strong> Histórico crudo inmutable. Persiste telemetría tal cual llega. Partición diaria por fecha y clúster por sensor.</p>
+                <div class="card card-cyan" style="padding:8px 12px;">
+                    <p style="font-size:0.84em;"><strong>🥉 Bronze (Consumo Base):</strong> Ingesta directa sin VMs. 25.92M msgs/mes $\implies$ 3.88 GB/mes. Partición DATE + Clúster.</p>
                 </div>
-                <div class="card card-green" style="padding:10px 14px;">
-                    <p style="font-size:0.86em;"><strong>🥈 Capa Silver:</strong> Deduplicación con <code>ROW_NUMBER()</code>, filtro de outliers físicos y generación de clave subrogada determinística MD5.</p>
+                <div class="card card-green" style="padding:8px 12px;">
+                    <p style="font-size:0.84em;"><strong>🥈 Silver (Transformación):</strong> Deduplicación con <code>ROW_NUMBER()</code> y clave subrogada MD5 sin mover datos fuera de GCP.</p>
                 </div>
-                <div class="card card-amber" style="padding:10px 14px;">
-                    <p style="font-size:0.86em;"><strong>🥇 Capa Gold:</strong> Esquema en estrella. Tabla de hechos de incidentes con cálculo contable en USD y tabla agregada de salud diaria.</p>
+                <div class="card card-amber" style="padding:8px 12px;">
+                    <p style="font-size:0.84em;"><strong>🥇 Gold (Analítica & TCO):</strong> Esquema en estrella. Tabla de hechos con pérdida en USD y resumen diario. Queries escanean solo 120 GB/mes.</p>
                 </div>
             </div>
 
             <div class="speaker-notes-drawer" id="notes-7">
                 <div class="notes-header">
-                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Diapositiva 7</span>
-                    <span class="badge badge-info">Arquitectura Central</span>
+                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Punto 6</span>
+                    <span class="badge badge-info">Arquitectura Final</span>
                 </div>
                 <div class="notes-grid">
                     <div class="notes-speech">
-                        "Esta diapositiva representa el núcleo de nuestra arquitectura: el Data Lakehouse Medallion sobre Google BigQuery.<br><br>
-                        Los datos fluyen por tres niveles de refinamiento: en la **Capa Bronze** almacenamos la telemetría cruda e inalterable, sirviendo de bitácora legal. En la **Capa Silver** limpiamos los datos, descartamos lecturas imposibles y eliminamos registros repetidos mediante funciones de ventana analítica, generando claves subrogadas MD5 para integridad referencial. Finalmente, en la **Capa Gold**, modelamos un esquema en estrella donde cruzamos los hechos con las dimensiones maestras de productos y choferes, cuantificando monetariamente el impacto del daño térmico.<br>
-                        En paralelo, el Hot Path consulta la vista `v_alertas_cadena_frio` para alertar en menos de 2 segundos."
+                        "Esta lámina representa la arquitectura definitiva del proyecto y es la base de ingeniería que genera directamente la estimación de consumo del primer año. Los 100 sensores publican hacia Cloud Pub/Sub, generando 25.92 millones de eventos al mes que ingresan a la Capa Bronze mediante Direct Ingestion sin intermediarios. La tabla Bronze está particionada diariamente por fecha y clusterizada por sensor. Luego, el pipeline batch transforma los datos hacia Silver con deduplicación y hashing MD5. Finalmente, en Gold modelamos un Star Schema que cruza con los maestros del ERP para calcular pérdidas financieras en dólares. Cada bloque minimiza el consumo, determinando los costos que veremos a continuación."
                     </div>
                     <div class="notes-qa">
-                        <h4>❓ Pregunta Probable del Jurado</h4>
-                        <p><strong>¿Por qué generar claves subrogadas con MD5 en SQL?</strong><br>
-                        Porque permite generar claves unívocas e idempotentes sin requerir secuencias transaccionales centralizadas en la base de datos.</p>
+                        <h4>❓ Pregunta del Jurado</h4>
+                        <p><strong>¿Por qué generar claves subrogadas con MD5 en SQL?</strong><br>Permite claves unívocas e idempotentes sin requerir secuencias transaccionales centralizadas en la base de datos.</p>
                     </div>
                 </div>
             </div>
@@ -784,11 +768,11 @@
         <!-- SLIDE 8: 7. CALCULADORA DE CONSUMO -->
         <div class="slide" id="slide-8">
             <div class="slide-header">
-                <h2>7. Calculadora de Consumo (Pricing Real GCP us-central1)</h2>
-                <span class="badge badge-success">Dimensionamiento & TCO</span>
+                <h2>7. Calculadora de consumo</h2>
+                <span class="badge badge-success">Punto 7 Oficial</span>
             </div>
 
-            <p style="font-size:0.9em; color:#94a3b8; margin-bottom:8px;">
+            <p style="font-size:0.88em; color:#94a3b8; margin-bottom:6px;">
                 Dimensionamiento para 100 sensores: $100 \times (86,400\text{s}/10\text{s}) \times 30\text{ días} = \mathbf{25,920,000\text{ eventos/mes}} \approx \mathbf{3.88\text{ GB/mes}}$.
             </p>
 
@@ -855,45 +839,42 @@
                 </tbody>
             </table>
 
-            <div class="grid-2" style="margin-top:10px;">
-                <div class="card card-red" style="padding:10px 16px;">
-                    <p style="font-size:0.86em;"><strong>Alternativa Tradicional (Dataproc Spark):</strong></p>
-                    <p style="font-size:0.95em; font-weight:700;">2x n1-standard-2 (24/7): <strong>$96.00 USD / mes ($1,152.00 USD / año)</strong></p>
+            <div class="grid-2" style="margin-top:8px;">
+                <div class="card card-red" style="padding:8px 14px;">
+                    <p style="font-size:0.84em;"><strong>Alternativa Tradicional (Dataproc Spark):</strong></p>
+                    <p style="font-size:0.92em; font-weight:700;">2x n1-standard-2 (24/7): <strong>$96.00 USD / mes ($1,152.00 USD / año)</strong></p>
                 </div>
-                <div class="card card-green" style="padding:10px 16px;">
-                    <p style="font-size:0.86em;"><strong>Nuestra Arquitectura Serverless GCP:</strong></p>
-                    <p style="font-size:0.95em; font-weight:700; color:#34d399;">Facturación Año 1: <strong>$0.92 USD / mes ($11.04 USD / año) &implies; 99.04% AHORRO</strong></p>
+                <div class="card card-green" style="padding:8px 14px;">
+                    <p style="font-size:0.84em;"><strong>Nuestra Arquitectura Serverless GCP:</strong></p>
+                    <p style="font-size:0.92em; font-weight:700; color:#34d399;">Facturación Año 1: <strong>$0.92 USD / mes ($11.04 USD / año) &implies; 99.04% AHORRO</strong></p>
                 </div>
             </div>
 
             <div class="speaker-notes-drawer" id="notes-8">
                 <div class="notes-header">
-                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Diapositiva 8</span>
-                    <span class="badge badge-info">Economía de Nube</span>
+                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Punto 7</span>
+                    <span class="badge badge-info">Calculadora de Consumo</span>
                 </div>
                 <div class="notes-grid">
                     <div class="notes-speech">
-                        "Uno de los puntos más contundentes de nuestra defensa es el análisis financiero con tarifas oficiales de Google Cloud.<br><br>
-                        Para una flota de 100 camiones transmitiendo una lectura cada 10 segundos, se generan casi 26 millones de eventos mensuales. Si hubiésemos implementado la solución clásica con un clúster de Spark en Dataproc, la empresa pagaría $1,152 dólares al año solo en servidores ociosos.<br>
-                        Nuestra arquitectura Serverless aprovecha la capa Always Free de Pub/Sub y BigQuery: la cuota gratuita cubre prácticamente todo el volumen, resultando en un costo de apenas **$0.92 dólares al mes** o **$11 dólares al año**. Demostramos que la arquitectura no solo es técnicamente impecable, sino financieramente insuperable con un ahorro del 99.04%."
+                        "Basándonos en la arquitectura anterior, realizamos el cálculo de consumo con tarifas oficiales de Google Cloud en `us-central1`. Para 100 camiones transmitiendo cada 10 segundos, procesamos casi 26 millones de mensajes al mes, totalizando 3.88 GB mensuales. Gracias a que Google otorga 10 GB gratuitos en Pub/Sub, 10 GB en BigQuery y 1 Terabyte en consultas analíticas, el costo de infraestructura mensual es de tan solo $0.92 dólares al mes, lo que equivale a $11.04 dólares al año. Frente a un clúster Spark que costaría $1,152 dólares al año, generamos un ahorro del 99.04% en el TCO."
                     </div>
                     <div class="notes-qa">
-                        <h4>❓ Pregunta Probable del Jurado</h4>
-                        <p><strong>¿Y si la flota escala a 5,000 camiones?</strong><br>
-                        El costo mensual proyectado sería de aproximadamente $65 USD/mes, manteniendo una ventaja económica abrumadora frente a cualquier solución basada en servidores dedicados.</p>
+                        <h4>❓ Pregunta del Jurado</h4>
+                        <p><strong>¿Y si la flota escala a 5,000 camiones?</strong><br>El costo mensual proyectado sería de aproximadamente $65 USD/mes, manteniendo una ventaja abrumadora frente a servidores dedicados.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 9: 8. DEMO END-TO-END -->
+        <!-- SLIDE 9: 8. DEMO END TO END DE IMPLEMENTACIÓN -->
         <div class="slide" id="slide-9">
             <div class="slide-header">
-                <h2>8. Demo End-to-End de Implementación (Evidencia Real)</h2>
-                <span class="badge badge-info">Caso de Uso en Vivo</span>
+                <h2>8. Demo end to end de implementación</h2>
+                <span class="badge badge-info">Punto 8 Oficial</span>
             </div>
 
-            <p style="font-size:0.88em; color:#94a3b8; margin-bottom:6px;">
+            <p style="font-size:0.86em; color:#94a3b8; margin-bottom:4px;">
                 Validación funcional end-to-end ejecutada en terminal: <code>python demo/demo_e2e.py</code>
             </p>
 
@@ -907,37 +888,36 @@
 [PASO 7: Decisión Prescriptiva]     Alerta a cabina para desvío de camión; bloqueo automático del lote en WMS.
             </pre>
 
-            <div class="grid-3" style="margin-top:10px;">
+            <div class="grid-3" style="margin-top:8px;">
                 <div class="card card-red">
-                    <p style="font-size:0.8em; color:var(--text-muted); text-transform:uppercase;">Condición de Falla</p>
-                    <p style="font-size:1.15em; font-weight:800; color:#f87171; margin:4px 0;">+9.5°C de Exceso</p>
-                    <p style="font-size:0.82em;">Lectura: 13.5°C (Límite: 4.0°C)<br>Severidad: <span class="badge badge-danger">CRÍTICA</span></p>
+                    <p style="font-size:0.78em; color:var(--text-muted); text-transform:uppercase;">Condición de Falla</p>
+                    <p style="font-size:1.1em; font-weight:800; color:#f87171; margin:2px 0;">+9.5°C de Exceso</p>
+                    <p style="font-size:0.8em;">Lectura: 13.5°C (Límite: 4.0°C)<br>Severidad: <span class="badge badge-danger">CRÍTICA</span></p>
                 </div>
                 <div class="card card-amber">
-                    <p style="font-size:0.8em; color:var(--text-muted); text-transform:uppercase;">Liquidación Contable</p>
-                    <p style="font-size:1.15em; font-weight:800; color:#fbbf24; margin:4px 0;">$1,187.50 USD</p>
-                    <p style="font-size:0.82em;">500 kg @ $5.00/kg con castigo<br>Chofer: Juan Perez (Camión 04)</p>
+                    <p style="font-size:0.78em; color:var(--text-muted); text-transform:uppercase;">Liquidación Contable</p>
+                    <p style="font-size:1.1em; font-weight:800; color:#fbbf24; margin:2px 0;">$1,187.50 USD</p>
+                    <p style="font-size:0.8em;">500 kg @ $5.00/kg con castigo<br>Chofer: Juan Perez (Camión 04)</p>
                 </div>
                 <div class="card card-green">
-                    <p style="font-size:0.8em; color:var(--text-muted); text-transform:uppercase;">Acción Prescriptiva</p>
-                    <p style="font-size:1.15em; font-weight:800; color:#34d399; margin:4px 0;">Desvío Exitoso</p>
-                    <p style="font-size:0.82em;">Notificación a chofer en &lt;2s<br>Cuarentena automática en WMS</p>
+                    <p style="font-size:0.78em; color:var(--text-muted); text-transform:uppercase;">Acción Prescriptiva</p>
+                    <p style="font-size:1.1em; font-weight:800; color:#34d399; margin:2px 0;">Desvío Exitoso</p>
+                    <p style="font-size:0.8em;">Notificación a chofer en &lt;2s<br>Cuarentena automática en WMS</p>
                 </div>
             </div>
 
             <div class="speaker-notes-drawer" id="notes-9">
                 <div class="notes-header">
-                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Diapositiva 9</span>
-                    <span class="badge badge-info">Demostración en Vivo</span>
+                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Punto 8</span>
+                    <span class="badge badge-info">Demo End-to-End</span>
                 </div>
                 <div class="notes-grid">
                     <div class="notes-speech">
-                        "A continuación presentamos la demostración funcional en vivo. Para comprobar la robustez del sistema desarrollamos un script interactivo en `demo/demo_e2e.py` que recorre el ciclo de vida completo de un incidente real.<br><br>
-                        Inyectamos una falla en el Camión 04: el sensor `SENSOR-02` reporta 13.5°C cuando transporta Carne Fresca, cuyo límite es 4°C. Al ejecutar la demo observamos cómo el evento llega a Pub/Sub, se persiste en BigQuery Bronze en apenas 2.1 segundos y activa la alerta del Hot Path. Inmediatamente el pipeline batch enriquece el dato y la API REST en FastAPI expone el JSON con la pérdida liquidada de **$1,187.50 dólares**, culminando con la orden de desvío al conductor Juan Perez."
+                        "A continuación demostramos el funcionamiento del pipeline corriendo de extremo a extremo mediante el script automatizado demo/demo_e2e.py. Emulamos un caso real: en el Camión 04 transportando Carne Fresca con límite de 4°C, el sensor SENSOR-02 registra una rotura térmica de 13.5°C. El mensaje viaja a Pub/Sub, se persiste en la Capa Bronze en 2.1 segundos y activa la alerta del Hot Path por un exceso de +9.5°C. El pipeline batch procesa la Capa Silver eliminando duplicados y genera en la Capa Gold la liquidación de pérdidas: $1,187.50 dólares. Finalmente, nuestra API REST expone el incidente con código HTTP 200, ordenando el desvío prescriptivo del chofer y bloqueando el lote en el WMS."
                     </div>
                     <div class="notes-qa">
-                        <h4>💡 Pauta para la Demostración</h4>
-                        <p>Si el jurado lo solicita, se puede alternar a la terminal y ejecutar <code>python demo/demo_e2e.py</code> para ver la secuencia corriendo en tiempo real contra GCP.</p>
+                        <h4>💡 Pauta de Demostración</h4>
+                        <p>Correr <code>python demo/demo_e2e.py</code> en vivo en la terminal Cloud Shell si el jurado lo pide.</p>
                     </div>
                 </div>
             </div>
@@ -946,11 +926,11 @@
         <!-- SLIDE 10: 9. CONCLUSIONES -->
         <div class="slide" id="slide-10">
             <div class="slide-header">
-                <h2>9. Conclusiones de la Implementación</h2>
-                <span class="badge badge-success">Balance & Logros</span>
+                <h2>9. Conclusiones</h2>
+                <span class="badge badge-success">Punto 9 Oficial</span>
             </div>
 
-            <div class="grid-2" style="margin-top:10px;">
+            <div class="grid-2" style="margin-top:8px;">
                 <div class="card card-cyan">
                     <h3 style="color:#38bdf8;">1. Factibilidad Técnica Serverless</h3>
                     <p>Se demostró con éxito la viabilidad de integrar telemetría streaming IoT de alta frecuencia con catálogos batch en un <strong>Data Lakehouse Serverless</strong> en GCP, prescindiendo por completo de la administración de máquinas virtuales o clústeres dedicados.</p>
@@ -971,20 +951,16 @@
 
             <div class="speaker-notes-drawer" id="notes-10">
                 <div class="notes-header">
-                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Diapositiva 10</span>
-                    <span class="badge badge-info">Cierre Conceptual</span>
+                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Punto 9</span>
+                    <span class="badge badge-info">Conclusiones</span>
                 </div>
                 <div class="notes-grid">
                     <div class="notes-speech">
-                        "Para resumir las conclusiones del proyecto podemos condensar cuatro logros fundamentales:<br><br>
-                        Primero, demostramos que la ingeniería de datos moderna no requiere arquitecturas complejas ni costosas para ser robusta: la combinación nativa de Pub/Sub y BigQuery ofrece escalabilidad masiva con cero fricción de gestión.<br>
-                        Segundo, garantizamos calidad absoluta del dato mediante idempotencia en Silver.<br>
-                        Tercero, logramos una reducción radical de costos: pasar de $1,152 dólares al año a solo $11 dólares anuales con Serverless es un argumento demoledor para cualquier comité financiero.<br>
-                        Y cuarto, entregamos una herramienta que habla el lenguaje del negocio: convertimos grados Celsius en dólares protegidos."
+                        "Como balance general del proyecto, destacamos cuatro conclusiones: primero, comprobamos la factibilidad técnica de procesar IoT masivo con arquitectura Serverless sin administrar clústeres dedicados. Segundo, garantizamos la calidad de datos bajo estándar ALCOA+ mediante deduplicación estricta en Silver. Tercero, logramos una reducción radical de costos, recortando el TCO en un 99.04% frente a clústeres tradicionales. Y cuarto, transformamos datos técnicos en valor de negocio directo: convertimos lecturas de temperatura en dólares liquidados y cargamentos salvados."
                     </div>
                     <div class="notes-qa">
                         <h4>🎯 Mensaje Final</h4>
-                        <p>La tecnología es el medio; el fin es la protección financiera del activo y la salud de los consumidores.</p>
+                        <p>La tecnología es el medio; el fin es la protección financiera del activo y la salud del consumidor.</p>
                     </div>
                 </div>
             </div>
@@ -993,17 +969,17 @@
         <!-- SLIDE 11: 10. NEXT STEPS -->
         <div class="slide" id="slide-11">
             <div class="slide-header">
-                <h2>10. Next Steps (Hoja de Ruta Estratégica & Futuro)</h2>
-                <span class="badge badge-purple">Roadmap 2027</span>
+                <h2>10. Next Steps</h2>
+                <span class="badge badge-purple">Punto 10 Oficial</span>
             </div>
 
             <div class="mermaid">
             flowchart LR
-                F1["<b>Fase 1 (Completada)</b><br/>• Lakehouse Medallion GCP<br/>• Ingesta Serverless Directa<br/>• REST API en FastAPI<br/>• Repositorio GitHub"] --> F2["<b>Fase 2 (Q1 2027)</b><br/>• BigQuery ML (ARIMA_PLUS)<br/>• Predicción de fallas en ruta<br/>• Despliegue en Cloud Run<br/>• CI/CD GitHub Actions"]
+                F1["<b>Fase 1 (Completada)</b><br/>• Lakehouse Medallion GCP<br/>• Ingesta Serverless Directa<br/>• REST API en FastAPI<br/>• Repositorio GitHub"] --> F2["<b>Fase 2 (Q1 2027)</b><br/>• BigQuery ML (ARIMA_PLUS)<br/>• Predicción de rotura en ruta<br/>• Despliegue en Cloud Run<br/>• CI/CD GitHub Actions"]
                 F2 --> F3["<b>Fase 3 (Q2 2027)</b><br/>• Smart Contracts Blockchain<br/>• Liquidación automática seguros<br/>• App Móvil PWA conductores<br/>• Alertas acústicas en cabina"]
             </div>
 
-            <div class="grid-2" style="margin-top:10px;">
+            <div class="grid-2" style="margin-top:8px;">
                 <div class="card card-cyan">
                     <h3>🚀 Corto Plazo: Q1 2027 (DevOps & ML Predictivo)</h3>
                     <ul>
@@ -1024,19 +1000,16 @@
 
             <div class="speaker-notes-drawer" id="notes-11">
                 <div class="notes-header">
-                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Diapositiva 11</span>
-                    <span class="badge badge-info">Visión de Futuro</span>
+                    <span class="notes-title">🎙️ Guión de Sustentación Oral - Punto 10</span>
+                    <span class="badge badge-info">Next Steps</span>
                 </div>
                 <div class="notes-grid">
                     <div class="notes-speech">
-                        "Nuestra visión del proyecto va más allá de esta entrega académica; hemos diseñado una hoja de ruta tecnológica clara y escalable.<br><br>
-                        En la Fase 2, programada para el primer trimestre de 2027, incorporaremos capacidades predictivas usando **BigQuery ML**. Entrenaremos un modelo `ARIMA_PLUS` que analizará la inercia térmica: si la temperatura sube a razón de 0.5°C por minuto, el sistema no esperará a que supere el límite de 4°C, sino que disparará la alerta preventiva 30 minutos antes.<br>
-                        Además, migraremos nuestra API a **Google Cloud Run** para contar con autoescalado serverless. En la Fase 3, exploraremos contratos inteligentes en Blockchain para liquidar de forma automática las pólizas de seguros ante roturas de frío certificadas."
+                        "Nuestra visión de futuro se plasma en una hoja de ruta en tres fases. En la Fase 2 (Q1 2027), incorporaremos BigQuery ML con el algoritmo ARIMA_PLUS para predecir anomalías térmicas 30 minutos antes de que ocurra la infracción, analizando la pendiente de subida de temperatura en carretera. Además, migraremos la API a contenedores en Google Cloud Run. En la Fase 3 (Q2 2027), integraremos contratos inteligentes en Blockchain para liquidar de forma automática e irrevocable las pólizas de seguro de carga."
                     </div>
                     <div class="notes-qa">
-                        <h4>❓ Pregunta Probable del Jurado</h4>
-                        <p><strong>¿Por qué usar BigQuery ML en lugar de Vertex AI?</strong><br>
-                        Porque permite entrenar modelos de series temporales directamente sobre los datos de la Capa Gold con SQL estándar, sin mover datos ni aprovisionar pipelines de MLOps complejos.</p>
+                        <h4>❓ Pregunta del Jurado</h4>
+                        <p><strong>¿Por qué BigQuery ML y no Vertex AI?</strong><br>Permite entrenar directamente sobre el Lakehouse con SQL estándar sin mover petabytes ni pagar pipelines de MLOps complejos.</p>
                     </div>
                 </div>
             </div>
@@ -1045,32 +1018,32 @@
         <!-- SLIDE 12: DEFENSA TÉCNICA (Q&A) -->
         <div class="slide" id="slide-12">
             <div class="slide-header">
-                <h2>Defensa Técnica y Banco de Respuestas (Q&A Jurado)</h2>
-                <span class="badge badge-info">Sesión de Preguntas</span>
+                <h2>Defensa Técnica y Preguntas del Jurado (Q&A)</h2>
+                <span class="badge badge-info">Cierre & Preguntas</span>
             </div>
 
             <div class="grid-2">
                 <div class="card card-cyan">
-                    <h4 style="color:#38bdf8; margin-bottom:4px;">P1: ¿Por qué Direct Ingestion en vez de Cloud Dataflow?</h4>
-                    <p style="font-size:0.86em;"><strong>Respuesta:</strong> Dataflow requiere clústeres de workers (Compute Engine) 24/7 con costo mínimo de $60-$120 USD/mes. BigQuery Direct Ingestion es nativo, 100% serverless, cuesta solo $0.05/GB y logra latencia &lt;2.5s con cero código intermedio que mantener.</p>
+                    <h4 style="color:#38bdf8; margin-bottom:3px;">P1: ¿Por qué Direct Ingestion en vez de Cloud Dataflow?</h4>
+                    <p style="font-size:0.84em;"><strong>Respuesta:</strong> Dataflow requiere clústeres de workers 24/7 ($60-$120 USD/mes). BigQuery Direct Ingestion es 100% serverless, cuesta solo $0.05/GB y logra latencia &lt;2.5s con cero código de mantenimiento.</p>
                 </div>
                 <div class="card card-green">
-                    <h4 style="color:#34d399; margin-bottom:4px;">P2: ¿Cómo garantizan no tener duplicados con Pub/Sub at-least-once?</h4>
-                    <p style="font-size:0.86em;"><strong>Respuesta:</strong> Aplicamos idempotencia matemática en el pipeline ELT de la Capa Silver usando <code>ROW_NUMBER() OVER(PARTITION BY device_id, timestamp ORDER BY timestamp DESC) = 1</code>. Ningún reintento celular distorsiona la Capa Gold.</p>
+                    <h4 style="color:#34d399; margin-bottom:3px;">P2: ¿Cómo garantizan no tener duplicados con Pub/Sub at-least-once?</h4>
+                    <p style="font-size:0.84em;"><strong>Respuesta:</strong> Aplicamos idempotencia matemática en el pipeline ELT de la Capa Silver usando <code>ROW_NUMBER() OVER(PARTITION BY device_id, timestamp ORDER BY timestamp DESC) = 1</code>. Ningún reintento celular distorsiona la Capa Gold.</p>
                 </div>
                 <div class="card card-amber">
-                    <h4 style="color:#fbbf24; margin-bottom:4px;">P3: ¿Qué pasaría con los costos si la flota escala a 10,000 camiones?</h4>
-                    <p style="font-size:0.86em;"><strong>Respuesta:</strong> Con 10,000 camiones generaríamos ~388 GB/mes. Pub/Sub costaría $15.12 USD y BigQuery Ingestion $19.40 USD. Toda la plataforma operaría por menos de $130 USD/mes, mientras un clúster Spark superaría los $1,500 USD/mes.</p>
+                    <h4 style="color:#fbbf24; margin-bottom:3px;">P3: ¿Qué pasaría con los costos si la flota escala a 10,000 camiones?</h4>
+                    <p style="font-size:0.84em;"><strong>Respuesta:</strong> Con 10,000 camiones generaríamos ~388 GB/mes. Pub/Sub costaría $15.12 USD y BigQuery Ingestion $19.40 USD. Toda la plataforma operaría por menos de $130 USD/mes, mientras un clúster Spark superaría los $1,500 USD/mes.</p>
                 </div>
                 <div class="card card-red">
-                    <h4 style="color:#f87171; margin-bottom:4px;">P4: ¿Cómo se protege la nube ante el robo de un sensor?</h4>
-                    <p style="font-size:0.86em;"><strong>Respuesta:</strong> Cloud IAM estricto (PoLP). La Service Account <code>iot-simulator-sa</code> solo posee el rol <code>roles/pubsub.publisher</code>. Un atacante no puede leer datos de otros camiones ni acceder a BigQuery ni alterar ningún recurso.</p>
+                    <h4 style="color:#f87171; margin-bottom:3px;">P4: ¿Cómo se protege la nube ante el robo de un sensor?</h4>
+                    <p style="font-size:0.84em;"><strong>Respuesta:</strong> Cloud IAM estricto (PoLP). La Service Account <code>iot-simulator-sa</code> solo posee el rol <code>roles/pubsub.publisher</code>. Un atacante no puede leer datos de otros camiones ni acceder a BigQuery ni alterar ningún recurso.</p>
                 </div>
             </div>
 
-            <div style="background:#0f172a; border-radius:10px; padding:14px 20px; border:1px solid var(--border-color); margin-top:10px; text-align:center;">
-                <h3 style="color:#38bdf8; font-size:1.15em; margin-bottom:4px;">¡Muchas Gracias por su Atención!</h3>
-                <p style="font-size:0.88em; color:#94a3b8;">
+            <div style="background:#0f172a; border-radius:10px; padding:12px 18px; border:1px solid var(--border-color); margin-top:8px; text-align:center;">
+                <h3 style="color:#38bdf8; font-size:1.1em; margin-bottom:3px;">¡Muchas Gracias por su Atención y Evaluación!</h3>
+                <p style="font-size:0.86em; color:#94a3b8;">
                     <strong>Proyecto GCP:</strong> <code>myfirstproject-508413</code> | <strong>Repositorio:</strong> <code>github.com/gsoto1872/iot-coldchain</code> | <strong>Swagger API:</strong> <code>/docs</code>
                 </p>
             </div>
@@ -1082,12 +1055,11 @@
                 </div>
                 <div class="notes-grid">
                     <div class="notes-speech">
-                        "Con esto concluyo formalmente la presentación de la arquitectura 'Smart Cold Chain IoT' en Google Cloud Platform.<br><br>
-                        Agradezco sinceramente su tiempo, atención y valiosos comentarios. Quedo a su entera disposición para profundizar en cualquiera de las capas de datos, los modelos SQL, los scripts de prueba o los criterios de dimensionamiento financiero. Muchas gracias."
+                        "Con esto concluyo formalmente la sustentación del proyecto Smart Cold Chain IoT en Google Cloud Platform. Agradezco sinceramente el tiempo, la atención y la rigurosidad del jurado evaluador y de nuestro profesor, y quedo a su entera disposición para responder cualquier consulta técnica, metodológica o conceptual sobre el proyecto. Muchas gracias."
                     </div>
                     <div class="notes-qa">
                         <h4>💡 Consejo de Defensa</h4>
-                        <p>Mantener serenidad y aplomo. Respaldar cada respuesta con métricas concretas (1.8s, 600ms, $0.92/mes, ROW_NUMBER) que ya fueron validadas en GCP.</p>
+                        <p>Mantener serenidad y respaldar cada respuesta con métricas concretas (1.8s, 600ms, $0.92/mes, ROW_NUMBER) ya verificadas en GCP.</p>
                     </div>
                 </div>
             </div>
@@ -1101,18 +1073,18 @@
             <button onclick="prevSlide()">&#8592; Anterior</button>
             <button onclick="nextSlide()">Siguiente &#8594;</button>
             <select class="slide-select" id="slide-jump" onchange="jumpToSlide(this.value)">
-                <option value="1">1. Portada & Proyecto</option>
-                <option value="2">2. Resumen Ejecutivo (Alcance)</option>
-                <option value="3">3. Situación Actual (As-Is vs To-Be)</option>
-                <option value="4">4. Criterios de Éxito (KPIs)</option>
-                <option value="5">5. Productos Tecnológicos (Stack)</option>
-                <option value="6">6. Dependencias & Supuestos</option>
-                <option value="7">7. Arquitectura Final (Lakehouse)</option>
-                <option value="8">8. Calculadora de Consumo (TCO)</option>
-                <option value="9">9. Demo End-to-End (Caso Real)</option>
-                <option value="10">10. Conclusiones del Proyecto</option>
-                <option value="11">11. Next Steps (Hoja de Ruta)</option>
-                <option value="12">12. Defensa Técnica (Q&A Jurado)</option>
+                <option value="1">Portada: Identificación del Proyecto</option>
+                <option value="2">1. Resumen ejecutivo - Alcance de la Migración/Implementación</option>
+                <option value="3">2. Situación actual</option>
+                <option value="4">3. Criterios de éxito, performance, en formato KPI</option>
+                <option value="5">4. Productos tecnológicos a usar</option>
+                <option value="6">5. Dependencias/supuestos o fuera de scope</option>
+                <option value="7">6. Arquitectura final (Estimación de consumo)</option>
+                <option value="8">7. Calculadora de consumo</option>
+                <option value="9">8. Demo end to end de implementación</option>
+                <option value="10">9. Conclusiones</option>
+                <option value="11">10. Next Steps</option>
+                <option value="12">Defensa Técnica (Q&A Jurado)</option>
             </select>
             <button class="secondary" id="notes-btn" onclick="toggleNotes()">🎙️ Notas Orador [N]</button>
             <button class="secondary" onclick="toggleFullScreen()">⛶ Pantalla Completa [F]</button>

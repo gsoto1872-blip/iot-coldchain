@@ -29,24 +29,24 @@
 
 ---
 
-### CRONOGRAMA MINUTO A MINUTO DE LA EXPOSICIÓN
+### CRONOGRAMA MINUTO A MINUTO DE LA EXPOSICIÓN (PUNTOS OFICIALES)
 
 ```
 ====================================================================================================
 TIEMPO TOTAL: 18 - 20 MINUTOS
 ----------------------------------------------------------------------------------------------------
-[Min 00:00 - 01:30]  Slide 01: Portada, Presentación Personal y Gancho de Negocio
-[Min 01:30 - 03:00]  Slide 02: 1. Resumen Ejecutivo - Alcance de la Implementación
-[Min 03:00 - 04:30]  Slide 03: 2. Situación Actual - Diagnóstico As-Is vs To-Be
-[Min 04:30 - 06:00]  Slide 04: 3. Criterios de Éxito en Formato KPI (Balanced Scorecard)
-[Min 06:00 - 08:00]  Slide 05: 4. Productos Tecnológicos a Usar (Stack & Justificación)
-[Min 08:00 - 09:30]  Slide 06: 5. Dependencias, Supuestos y Gestión de Riesgos
-[Min 09:30 - 12:00]  Slide 07: 6. Arquitectura Final: Data Lakehouse Medallion
-[Min 12:00 - 14:00]  Slide 08: 7. Calculadora de Consumo y TCO (Pricing Real de GCP)
-[Min 14:00 - 17:00]  Slide 09: 8. Demostración Práctica End-to-End (Arnés en Vivo)
-[Min 17:00 - 18:30]  Slide 10: 9. Conclusiones Técnicas, Operativas y Financieras
-[Min 18:30 - 19:30]  Slide 11: 10. Next Steps - Hoja de Ruta Tecnológica 2027
-[Min 19:30 - 20:30]  Slide 12: Cierre Protocolar y Apertura de Preguntas (Q&A)
+[Min 00:00 - 01:30]  Slide 01: Portada, Presentación Personal y Ficha del Proyecto
+[Min 01:30 - 03:00]  Slide 02: 1. Resumen ejecutivo - Alcance de la Migración/Implementación
+[Min 03:00 - 04:30]  Slide 03: 2. Situación actual
+[Min 04:30 - 06:00]  Slide 04: 3. Criterios de éxito, performance, en formato KPI
+[Min 06:00 - 08:00]  Slide 05: 4. Productos tecnológicos a usar
+[Min 08:00 - 09:30]  Slide 06: 5. Dependencias/supuestos o fuera de scope
+[Min 09:30 - 12:00]  Slide 07: 6. Arquitectura final: (la arquitectura que generará la estimación de consumo del primer año)
+[Min 12:00 - 14:00]  Slide 08: 7. Calculadora de consumo
+[Min 14:00 - 17:00]  Slide 09: 8. Demo end to end de implementación
+[Min 17:00 - 18:30]  Slide 10: 9. Conclusiones
+[Min 18:30 - 19:30]  Slide 11: 10. Next Steps
+[Min 19:30 - 20:30]  Slide 12: Defensa Técnica y Preguntas del Jurado (Q&A)
 ====================================================================================================
 ```
 
@@ -58,7 +58,7 @@ TIEMPO TOTAL: 18 - 20 MINUTOS
 
 ## DIAPOSITIVA 01: PORTADA EJECUTIVA E IDENTIFICACIÓN DEL PROYECTO
 **Tiempo estimado:** 01:30 minutos  
-**Diapositiva en pantalla:** Portada con badges de Google Cloud, ID del proyecto y lema.
+**Diapositiva en pantalla:** Portada con badges de Google Cloud, ID del proyecto `myfirstproject-508413` y lema.
 
 ### 🎙️ Discurso Verbal:
 
@@ -74,281 +74,287 @@ TIEMPO TOTAL: 18 - 20 MINUTOS
 > `[Señalar badges en la diapositiva]`  
 > *Quiero destacar desde el primer segundo que lo que verán hoy no es un boceto conceptual ni una simulación académica en un entorno local. Es una **arquitectura Serverless viva y operativa**, desplegada bajo el ID de proyecto `myfirstproject-508413` en la región `us-central1` de Google Cloud.*
 >
-> *A lo largo de los próximos 18 minutos demostraré cómo logramos transformar lecturas de hardware ciego en **decisiones prescriptivas inmediatas con latencia inferior a 2 segundos**, liquidando de forma algorítmica las pérdidas monetarias en dólares y logrando una eficiencia de costos de infraestructura que reduce en más de un 99% el gasto tradicional. Los invito a comenzar revisando el alcance ejecutivo."*
+> *A lo largo de los próximos 18 minutos demostraremos cómo cubrimos de forma exhaustiva los diez puntos fundamentales requeridos: desde el alcance de migración e implementación, pasando por los criterios de éxito en formato KPI, la arquitectura final que genera la estimación de consumo, la calculadora de costos del primer año, hasta la demostración práctica en vivo y las conclusiones.*
+>
+> *Los invito a comenzar con el primer punto: el Resumen Ejecutivo y Alcance de la Migración e Implementación."*
 
 `[Transición: Presionar tecla Flecha Derecha o Espacio para pasar al Slide 2]`
 
 ---
 
-## DIAPOSITIVA 02: 1. RESUMEN EJECUTIVO - ALCANCE DE LA IMPLEMENTACIÓN
+## DIAPOSITIVA 02: 1. RESUMEN EJECUTIVO - ALCANCE DE LA MIGRACIÓN/IMPLEMENTACIÓN
 **Tiempo estimado:** 01:30 minutos  
-**Diapositiva en pantalla:** Tarjetas de Reto Global, Alcance Desarrollado y Valor Entregado.
+**Diapositiva en pantalla:** Tarjetas de Alcance de la Migración, Alcance de la Implementación y Procesamiento Híbrido.
 
 ### 🎙️ Discurso Verbal:
 
-> *"Iniciemos dimensionando la escala del problema.*
+> *"Iniciemos con el **Punto 1: Resumen ejecutivo - Alcance de la Migración e Implementación**.*
 >
-> `[Señalar la tarjeta izquierda: El Problema Global]`  
-> *A nivel mundial se registran más de **35 mil millones de dólares anuales en mermas** por fallas en la cadena de frío. Pero el dato verdaderamente revelador es que **el 80% de estas catástrofes ocurren durante el transporte terrestre e intermodal**. Una vez que el camión frigorífico sale del centro de distribución, la mercadería entra en una auténtica 'caja negra' logística.*
+> `[Señalar la tarjeta izquierda: Alcance de la Migración]`  
+> *En primer lugar, el **alcance de la migración** aborda la modernización de la infraestructura tecnológica. La empresa operaba bajo un modelo heredado (*legacy*) caracterizado por dataloggers USB manuales, hojas de cálculo aisladas y bases de datos relacionales en servidores locales que sufrían graves problemas de concurrencia y contención de bloqueos. En lugar de hacer una migración básica de tipo 'Lift-and-Shift' —que habría significado trasladar máquinas virtuales caras a la nube—, ejecutamos un **Re-platforming hacia Cloud-Native Serverless** en Google Cloud Platform, desacoplando completamente el almacenamiento del cómputo.*
 >
 > `[Pausa de 1 segundo]`
 >
-> `[Señalar la tarjeta central: Alcance Desarrollado]`  
-> *Para erradicar esa caja negra, nuestro alcance contempló el diseño e implementación de un **Data Lakehouse Medallion** que une dos flujos de datos que históricamente vivían en silos aislados:*
-> * *Por un lado, el **flujo streaming de IoT**, recibiendo lecturas continuas de temperatura, humedad relativa y nivel de batería cada 10 segundos.*
-> * *Por otro lado, el **flujo batch del sistema transaccional ERP**, que contiene los lotes, las tolerancias térmicas del producto, su costo unitario y la asignación del chofer y vehículo.*
+> `[Señalar la tarjeta central: Alcance de la Implementación]`  
+> *En segundo lugar, el **alcance de la implementación** construyó una plataforma integral de datos que unifica dos flujos:*
+> * *El **flujo streaming de IoT**, que ingesta telemetría continua de temperatura, humedad y batería desde 100 sensores cada 10 segundos vía Cloud Pub/Sub.*
+> * *Y el **flujo batch del ERP**, que aporta los catálogos maestros con tolerancias térmicas, costo unitario por kilogramo o dosis, chofer y vehículo asignado.*
 >
-> `[Señalar la tarjeta derecha: El Valor Entregado]`  
-> *Esta convergencia alimenta dos rutas: un **Hot Path** que en menos de 2 segundos detecta cualquier desvío térmico y envía una alarma a la cabina del camión para desviar la carga a una cámara de contingencia antes de que se descomponga; y un **Cold Path** en batch que consolida la información diaria, genera balances contables de la pérdida y expone estos datos a través de una API REST moderna para sistemas corporativos.*
+> `[Señalar la tarjeta derecha: Procesamiento Híbrido]`  
+> *Esta integración alimenta nuestro **procesamiento híbrido**: un **Hot Path** que en menos de 2 segundos alerta a la cabina del camión para desviar la carga a una cámara fría y evitar la pérdida física; y un **Cold Path** en batch que consolida la información diaria, deduplica registros y calcula la pérdida financiera en dólares para aseguradoras, exponiendo todo mediante una REST API en FastAPI.*
 >
-> *Veamos a continuación cómo este enfoque revoluciona la situación actual del sector."*
+> *Veamos a continuación el Punto 2: la Situación Actual."*
 
 `[Transición: Pasar al Slide 3]`
 
 ---
 
-## DIAPOSITIVA 03: 2. SITUACIÓN ACTUAL (DIAGNÓSTICO AS-IS vs TO-BE)
+## DIAPOSITIVA 03: 2. SITUACIÓN ACTUAL
 **Tiempo estimado:** 01:30 minutos  
 **Diapositiva en pantalla:** Diagrama de flujo comparativo y matriz As-Is vs To-Be.
 
 ### 🎙️ Discurso Verbal:
 
-> *"Para entender el salto cuántico que representa este proyecto, debemos comparar la situación actual del mercado con la solución que hemos implementado.*
+> *"Pasamos al **Punto 2: Situación actual**.*
 >
 > `[Señalar el diagrama superior: Flujo As-Is]`  
-> *Actualmente, más del 70% de las empresas de transporte refrigerado utilizan los llamados **dataloggers pasivos**: pequeños dispositivos USB que se colocan entre las cajas. El transportista conduce 15 o 20 horas a través de la carretera. Al llegar a la bodega de destino, el inspector de calidad abre el camión, retira el dispositivo USB, lo conecta a una laptop y descarga un PDF.*
+> *Para justificar esta solución debemos entender la precariedad de la situación actual en el transporte de carga refrigerada. Más del 70% de las empresas utilizan **dataloggers pasivos USB**. El transportista coloca un dispositivo USB entre las cajas y conduce durante 15 o 20 horas a través de la carretera.*
 >
-> *¿Qué descubre en ese momento? Que hace 10 horas el compresor de frío falló y la mercadería estuvo a 15 grados centígrados. **Eso no es control de calidad; eso es una autopsia forense**. La carga se va directo a la basura, se pierden miles de dólares y comienzan meses de litigios judiciales entre el dueño de la carga y el transportista.*
+> *Al llegar a destino, el inspector de calidad descarga el archivo en su laptop y descubre que hace 10 horas el compresor falló y la mercadería se calentó a 15 grados. **Esto no es control de calidad; es una autopsia forense**. El 100% de la carga se destruye, se pierden miles de dólares y comienzan meses de disputas legales entre el dueño de la carga y el transportista.*
 >
 > `[Pausa de 2 segundos. Modular la voz hacia un tono positivo y resolutivo]`
 >
 > `[Señalar el diagrama inferior: Flujo To-Be]`  
-> *Con nuestro modelo **To-Be**, transformamos esa reacción tardía en un **control activo y proactivo en tiempo real**. Si el compresor falla en el kilómetro 80 de una autopista, en menos de **2 segundos** el chofer y la torre de control reciben la notificación del exceso térmico. El conductor se desvía de inmediato a un almacén frigorífico en el kilómetro 90, se trasvasa la mercadería y **se salva el 100% del cargamento**.*
+> *Con nuestra situación implementada **To-Be**, transformamos esa reacción tardía en un **control activo y proactivo en tiempo real**. Si el compresor falla en la carretera, en menos de **2 segundos** el chofer y la torre de control reciben la notificación del exceso térmico. El conductor se desvía de inmediato a un almacén frigorífico cercano, se trasvasa la mercadería y **se salva el 100% del cargamento**.*
 >
-> *Además, sustituimos los servidores dedicados por una arquitectura 100% Serverless, logrando un ahorro de costos de TI superior al 99%.*
+> *Y en costos de TI, reemplazamos servidores dedicados costosos por arquitectura Serverless, reduciendo el TCO en un 99.04%.*
 >
-> *Para comprobar que esto funciona con rigor de ingeniería, definimos un cuadro de mando integral con métricas concretas."*
+> *Revisemos ahora el Punto 3: los Criterios de Éxito en formato KPI."*
 
 `[Transición: Pasar al Slide 4]`
 
 ---
 
-## DIAPOSITIVA 04: 3. CRITERIOS DE ÉXITO EN FORMATO KPI
+## DIAPOSITIVA 04: 3. CRITERIOS DE ÉXITO, PERFORMANCE, EN FORMATO KPI
 **Tiempo estimado:** 01:30 minutos  
 **Diapositiva en pantalla:** Tarjetas numéricas de KPIs (1.8s, 99.99%, 100%, 100%, 600ms, $0.00).
 
 ### 🎙️ Discurso Verbal:
 
-> *"Para evaluar el desempeño del sistema de manera objetiva y cuantificable, establecimos seis Indicadores Clave de Rendimiento organizados bajo un Balanced Scorecard de datos.*
+> *"Continuamos con el **Punto 3: Criterios de éxito, performance, en formato KPI**.*
+>
+> *Para medir el éxito de la plataforma establecimos un Balanced Scorecard de datos con seis métricas cuantitativas estrictas:*
 >
 > `[Señalar la primera tarjeta: Latencia Hot Path]`  
-> *El primer KPI, de naturaleza operacional, fue la **Latencia de Detección en el Hot Path**. Nos propusimos alertar en 3 segundos o menos. En los ensayos reales sobre Google Cloud obtuvimos una marca de **1.8 segundos** cronometrados desde la emisión física del sensor hasta la actualización de la vista analítica. KPI superado con creces.*
+> *1. **Latencia del Hot Path**: la meta de diseño era alertar en $\le 3.0$ segundos. En los ensayos reales sobre Google Cloud obtuvimos **1.8 segundos**, superando holgadamente el objetivo.*
 >
 > `[Señalar la segunda tarjeta: Disponibilidad]`  
-> *El segundo KPI, de resiliencia, exigía una disponibilidad mínima del 99.90% para la ingesta. Al sustentarnos sobre la infraestructura multi-zona de **Google Cloud Pub/Sub**, alcanzamos un **99.99%** respaldado contractualmente por el SLA de Google.*
+> *2. **Disponibilidad de Ingesta**: meta de $\ge 99.90\%$. Alcanzamos un **99.99%** respaldado por el SLA multi-zona de Cloud Pub/Sub.*
 >
 > `[Señalar la tercera tarjeta: Deduplicación Silver]`  
-> *El tercer KPI es crítico para la gobernanza: **100% de Deduplicación en la Capa Silver**. Los sensores móviles en carretera sufren cortes de señal celular y reenvían paquetes repetidos. Si procesáramos esos datos en crudo, duplicaríamos las multas contables. Mediante funciones analíticas de ventana con `ROW_NUMBER()`, garantizamos que no exista un solo registro duplicado en la capa limpia.*
+> *3. **Deduplicación en Capa Silver**: meta del 100%. Los reintentos celulares por pérdida de cobertura en carretera se eliminaron al **100%** mediante funciones de ventana analítica con `ROW_NUMBER()`, garantizando idempotencia matemática.*
+>
+> `[Señalar la cuarta tarjeta: Precisión Contable]`  
+> *4. **Valoración Contable**: logramos el **100% de incidentes valorizados en USD** en la Capa Gold, sin valores nulos.*
 >
 > `[Señalar las tarjetas inferiores: Velocidad y Costos]`  
-> *Finalmente, en rendimiento y finanzas: optimizamos el almacenamiento en BigQuery mediante **particionamiento diario y clustering por dispositivo**, logrando que las consultas analíticas respondan en apenas **600 milisegundos**, operando en nuestro laboratorio a un costo de **$0.00 dólares** gracias a la capa Always Free de GCP.*
+> *5. **Performance de Consultas**: gracias al particionado diario por fecha y clustering por dispositivo en BigQuery, las consultas complejas de auditoría responden en apenas **600 milisegundos**.*
+> *6. **Eficiencia de Costos TI**: la meta era gastar $\le \$20$ USD mensuales. El resultado real en laboratorio fue de **$0.00 USD al mes** gracias al Always Free Tier de GCP.*
 >
-> *Veamos a continuación el stack tecnológico que hizo posibles estos resultados."*
+> *Veamos a continuación el Punto 4: los Productos Tecnológicos a usar."*
 
 `[Transición: Pasar al Slide 5]`
 
 ---
 
-## DIAPOSITIVA 05: 4. PRODUCTOS TECNOLÓGICOS A USAR (STACK & JUSTIFICACIÓN)
+## DIAPOSITIVA 05: 4. PRODUCTOS TECNOLÓGICOS A USAR
 **Tiempo estimado:** 02:00 minutos  
 **Diapositiva en pantalla:** Diagrama Mermaid de componentes y tabla de alternativas descartadas.
 
 ### 🎙️ Discurso Verbal:
 
-> *"La elección de tecnologías en este proyecto obedeció a un principio estricto de ingeniería: **máxima resiliencia con el menor costo operativo y de mantenimiento posible**.*
+> *"Entramos al **Punto 4: Productos tecnológicos a usar**.*
 >
-> `[Señalar la capa de Ingesta: Cloud Pub/Sub]`  
-> *Para la ingesta elegimos **Google Cloud Pub/Sub**. ¿Por qué descartamos Apache Kafka? Porque montar un clúster de Kafka con Zookeeper o KRaft exige pagar instancias virtuales encendidas las 24 horas del día, lo que generaría un costo fijo de más de 150 dólares al mes en servidores ociosos. Pub/Sub escala de 0 a millones de eventos de forma transparente y nos ofrece 10 GB mensuales gratuitos.*
+> `[Señalar el diagrama de flujo tecnológico]`  
+> *La selección de componentes no respondió a modas, sino a un análisis estricto de trade-offs técnicos y económicos:*
+>
+> `[Señalar Cloud Pub/Sub]`  
+> * *Para la ingesta elegimos **Google Cloud Pub/Sub**. Descartamos Apache Kafka porque exige mantener servidores dedicados con Zookeeper o KRaft encendidos las 24 horas del día, lo que generaría un costo fijo de más de 150 dólares mensuales en máquinas ociosas. Pub/Sub autoescala de 0 a millones de eventos y nos ofrece 10 GB gratuitos cada mes.*
 >
 > `[Señalar BigQuery Direct Ingestion]`  
-> *Pero la innovación clave en la ingesta radica en **BigQuery Direct Ingestion**. Tradicionalmente, se solía colocar un pipeline de Cloud Dataflow entre Pub/Sub y BigQuery. Sin embargo, para ingesta directa de telemetría a la Capa Bronze, Dataflow requería pagar workers de cómputo continuos. Con Direct Ingestion, Pub/Sub escribe de forma atómica y directa en BigQuery en 2 segundos, sin una sola línea de código middleware y a solo 5 centavos por gigabyte.*
+> * *La pieza clave de la ingesta es **BigQuery Direct Ingestion**. Tradicionalmente se usaba Cloud Dataflow entre Pub/Sub y BigQuery. Sin embargo, para ingestar datos crudos a la Capa Bronze, Dataflow requería pagar workers de cómputo continuos. Con Direct Ingestion, Pub/Sub escribe de forma directa en BigQuery en 2 segundos, a solo 5 centavos por gigabyte y con cero líneas de código middleware.*
 >
 > `[Señalar BigQuery]`  
-> *Para el almacenamiento elegimos **Google BigQuery** frente a Cloud SQL. Las bases de datos relacionales tradicionales sufren bloqueos de registros cuando miles de sensores escriben concurrentemente. BigQuery utiliza el formato columnar Capacitor, permitiendo ingestas masivas y análisis forense sobre petabytes con cero contención de bloqueos.*
+> * *Para el almacenamiento elegimos **Google BigQuery** frente a Cloud SQL. Las bases relacionales colapsan ante miles de escrituras concurrentes de sensores IoT por contención de bloqueos transaccionales. BigQuery almacena petabytes en formato columnar sin bloqueos.*
 >
 > `[Señalar Cloud IAM y FastAPI]`  
-> *En seguridad aplicamos el **Principio de Menor Privilegio** a través de Cloud IAM: la Service Account del sensor solo tiene el rol de publicador en Pub/Sub, impidiendo cualquier acceso a la base de datos. Y para exponer los servicios implementamos un microservicio con **FastAPI en Python 3.12**, que aprovecha el tipado estricto de Pydantic y soporte asíncrono nativo.*
+> * *En seguridad aplicamos el Principio de Menor Privilegio mediante una Service Account con rol estricto de publicación en Cloud IAM. Y para la exposición de servicios construimos una API REST en **FastAPI (Python 3.12)** con validación de contratos en Pydantic y documentación OpenAPI Swagger nativa.*
 >
-> *Examinemos ahora cómo delimitamos las fronteras del proyecto y gestionamos los riesgos."*
+> *Revisemos ahora el Punto 5: Dependencias, Supuestos y Fuera de Scope."*
 
 `[Transición: Pasar al Slide 6]`
 
 ---
 
-## DIAPOSITIVA 06: 5. DEPENDENCIAS, SUPUESTOS Y GESTIÓN DE RIESGOS
+## DIAPOSITIVA 06: 5. DEPENDENCIAS/SUPUESTOS O FUERA DE SCOPE
 **Tiempo estimado:** 01:30 minutos  
 **Diapositiva en pantalla:** Matriz de dependencias, supuestos y elementos fuera de scope.
 
 ### 🎙️ Discurso Verbal:
 
-> *"Ningún proyecto de ingeniería está completo si no define con rigor sus dependencias y cómo mitiga los riesgos inherentes del entorno real.*
+> *"Pasamos al **Punto 5: Dependencias/supuestos o fuera de scope**.*
 >
 > `[Señalar la primera fila: Conectividad Móvil]`  
-> *El principal riesgo en aplicaciones telemáticas es la **pérdida de cobertura celular en carretera**. Si el camión entra en un túnel o en una zona montañosa durante dos horas, ¿qué ocurre? Diseñamos la solución para ser completamente tolerante a caídas de red: el gateway del sensor cuenta con un buffer FIFO en memoria local. Cuando el vehículo recupera cobertura, envía una ráfaga acumulada de 2,000 lecturas. Pub/Sub absorbe el pico elásticamente y nuestro pipeline SQL en Silver se encarga de reordenar cronológicamente los datos sin pérdida de eventos.*
->
-> `[Señalar la segunda fila: Colocalización]`  
-> *Otra dependencia crítica es la latencia y los costos de transferencia de red. Mitigamos esto mediante la **colocalización estricta**: todos los recursos (Pub/Sub, BigQuery y Cloud Storage) residen en la misma región: `us-central1` (Iowa). Gracias a esto, el costo por transferencia interna de datos es exactamente **$0.00 USD**.*
+> *Todo proyecto robusto debe explicitar sus dependencias y cómo mitiga los riesgos del entorno real:*
+> * *La **dependencia crítica de conectividad celular 4G** se mitiga en el gateway IoT mediante un buffer local FIFO. Si el camión entra en un túnel sin señal durante dos horas, almacena las lecturas en memoria y las envía en ráfaga al salir. Pub/Sub absorbe el pico elásticamente y la Capa Silver reordena y deduplica.*
+> * *La **dependencia regional en `us-central1`** se mitiga con la colocalización total de recursos en Iowa, garantizando que el tráfico de red interno tenga un costo de **$0.00 USD**.*
 >
 > `[Señalar los Supuestos y Fuera de Scope]`  
-> *En los supuestos, establecimos un **Data Contract JSON estricto**: si un sensor defectuoso envía lecturas físicamente imposibles, como 500 grados centígrados, la Capa Silver las aísla en una tabla de cuarentena. Asimismo, congelamos el costo unitario del producto al momento del despacho para evitar que variaciones de mercado distorsionen las pérdidas contables.*
+> *Entre los **supuestos**, establecimos un **Data Contract JSON estricto**: si un sensor defectuoso envía lecturas físicamente imposibles como 500°C, la Capa Silver las aísla en una tabla de cuarentena mediante un filtro físico de -50°C a +60°C. Asimismo, asumimos la constancia del costo unitario del lote durante el viaje congelándolo en la tabla `dim_productos`.*
 >
-> *Y dejamos conscientemente fuera de alcance la soldadura y calibración física del hardware del sensor para enfocar el 100% de nuestro esfuerzo en la arquitectura analítica en la nube.*
+> *Y dejamos formalmente **fuera de scope** la fabricación de circuitos físicos de hardware para concentrarnos en la arquitectura analítica en la nube, emulando la física telemática con Python.*
 >
-> *Pasemos ahora a revisar el corazón del sistema: la Arquitectura Final Medallion."*
+> *Llegamos ahora al Punto 6: la Arquitectura Final que generará la estimación de consumo del primer año."*
 
 `[Transición: Pasar al Slide 7]`
 
 ---
 
-## DIAPOSITIVA 07: 6. ARQUITECTURA FINAL: DATA LAKEHOUSE MEDALLION
+## DIAPOSITIVA 07: 6. ARQUITECTURA FINAL: (LA ARQUITECTURA QUE GENERARÁ LA ESTIMACIÓN DE CONSUMO DEL PRIMER AÑO)
 **Tiempo estimado:** 02:30 minutos  
-**Diapositiva en pantalla:** Diagrama completo de las 4 etapas del Lakehouse y capas Bronze, Silver y Gold.
+**Diapositiva en pantalla:** Diagrama completo de las 4 etapas del Lakehouse Medallion y desglose de consumo por capa.
 
 ### 🎙️ Discurso Verbal:
 
-> *"Esta lámina representa el núcleo técnico de nuestra sustentación: la arquitectura definitiva basada en el patrón **Data Lakehouse Medallion**.*
+> *"Llegamos al **Punto 6: Arquitectura final: (la arquitectura que generará la estimación de consumo del primer año)**.*
 >
-> `[Señalar Etapa 1 y 2: Fuentes e Ingesta]`  
-> *El viaje del dato comienza a la izquierda con los 100 sensores transmitiendo cada 10 segundos hacia el topic de Pub/Sub `iot-telemetry-topic`, mientras los catálogos maestros del ERP residen en Cloud Storage. A través de la suscripción `iot-telemetry-bq-sub`, los eventos entran directamente a BigQuery sin intermediarios.*
+> `[Señalar el diagrama de arquitectura central]`  
+> *Esta diapositiva representa el núcleo de ingeniería del proyecto. Es fundamental porque cada uno de los bloques que ven aquí define de manera matemática las métricas que alimentan nuestra calculadora de consumo del primer año:*
 >
-> `[Señalar Etapa 3: Capa Bronze]`  
-> *Los datos ingresan primero a la **Capa Bronze**, en la tabla `bronze_telemetria`. Esta capa representa la verdad histórica pura, cruda e inalterable. Para maximizar el rendimiento analítico y reducir costos, la tabla está **particionada por fecha (`DATE(timestamp)`) y clusterizada por el identificador del sensor (`device_id`)**.*
+> `[Señalar Etapa 1 y 2: Ingesta]`  
+> *1. **Ingesta Streaming (Pub/Sub):** Los 100 sensores emiten una lectura cada 10 segundos, generando **25.92 millones de mensajes al mes** ($\approx 3.88\text{ GB/mes}$) que entran al topic `iot-telemetry-topic`. Esto define el primer consumo.*
+> *2. **Direct Ingestion:** Transfiere esos 3.88 GB mensuales directamente a BigQuery sin workers de cómputo.*
 >
-> `[Pausa de 1 segundo]`
+> `[Señalar Capa Bronze]`  
+> *3. **Capa Bronze (`bronze_telemetria`):** Almacena el histórico crudo inmutable. Está particionada diariamente por `DATE(timestamp)` y clusterizada por `device_id`. Al cabo de 12 meses, acumula un volumen neto de **46.5 Gigabytes**, lo que define el consumo de almacenamiento.*
 >
 > `[Señalar Capa Silver]`  
-> *A continuación, el pipeline batch orquestado en Python ejecuta la transformación hacia la **Capa Silver**, en la tabla `silver_telemetria_clean`. En este punto realizamos tres operaciones críticas de calidad de datos:*
-> 1. *Descartamos cualquier lectura con ruido electromagnético fuera del rango de -50°C a +60°C.*
-> 2. *Aplicamos la función de ventana `ROW_NUMBER()` para eliminar registros duplicados producto de retransmisiones celulares.*
-> 3. *Generamos una **clave primaria subrogada determinística** utilizando un hash MD5 a partir del sensor y la marca de tiempo, garantizando la idempotencia del proceso.*
+> *4. **Capa Silver (`silver_telemetria_clean`):** El pipeline batch deduplica registros con `ROW_NUMBER()` y genera claves subrogadas MD5. Al ejecutarse dentro de BigQuery mediante SQL analítico, no genera costos de transferencia externa.*
 >
 > `[Señalar Capa Gold]`  
-> *Finalmente, en la **Capa Gold**, modelamos la información en un **esquema en estrella (Star Schema)**. Aquí cruzamos la telemetría limpia con las dimensiones del ERP (`dim_productos` y `dim_asignacion_sensores`). Esto produce dos tablas de hechos:*
-> * *La tabla `gold_fact_incidentes`, donde cada sobrecalentamiento se clasifica como Moderado, Alto o Crítico, calculando de manera algorítmica la **pérdida financiera en dólares** multiplicando el volumen del lote por el costo unitario y el castigo térmico.*
-> * *Y la tabla agregada `gold_fact_resumen_diario`, que consolida métricas diarias de temperatura y monitorea el desgaste de la batería de cada dispositivo.*
+> *5. **Capa Gold (`gold_fact_incidentes` y `gold_fact_resumen_diario`):** Modela los hechos en un esquema en estrella cruzando con las tablas del ERP (`dim_productos`). Gracias al particionado y clustering, las consultas de auditoría solo escanean **~120 GB al mes**, definiendo el consumo de queries SQL.*
 >
-> `[Señalar Hot Path y API]`  
-> *En paralelo, el **Hot Path** consulta la vista `v_alertas_cadena_frio` en menos de 2 segundos, alimentando a la REST API en FastAPI para notificaciones operativas inmediatas.*
+> `[Señalar Cloud Storage y Egress]`  
+> *6. **Almacenamiento de Maestros y Red:** Cloud Storage almacena los CSVs del ERP (<100 MB), y como todos los servicios residen en `us-central1`, el tráfico de red interno es de cero dólares.*
 >
-> *Veamos ahora el impacto financiero de esta arquitectura en la Calculadora de Consumo."*
+> *Veamos de inmediato cómo esta arquitectura se traduce en números concretos en el Punto 7: la Calculadora de Consumo."*
 
 `[Transición: Pasar al Slide 8]`
 
 ---
 
-## DIAPOSITIVA 08: 7. CALCULADORA DE CONSUMO Y TCO (PRICING REAL DE GCP)
+## DIAPOSITIVA 08: 7. CALCULADORA DE CONSUMO
 **Tiempo estimado:** 02:00 minutos  
 **Diapositiva en pantalla:** Ecuaciones de dimensionamiento, tabla de desglose por SKU y comparativa de TCO.
 
 ### 🎙️ Discurso Verbal:
 
-> *"Uno de los mayores diferenciadores de nuestra propuesta radica en la solvencia económica del diseño. Realizamos un dimensionamiento riguroso basado en las tarifas públicas oficiales de Google Cloud para la región `us-central1`.*
+> *"Pasamos al **Punto 7: Calculadora de consumo**.*
 >
-> `[Señalar las fórmulas en la parte superior]`  
-> *Si consideramos una flota mediana de **100 camiones refrigerados** emitiendo una lectura cada 10 segundos durante las 24 horas del día por 30 días, tenemos exactamente:*  
-> *100 camiones por 8,640 lecturas al día por 30 días = **25 millones 920 mil mensajes mensuales**.*  
-> *A un peso de 150 bytes por payload JSON, esto equivale a **3.88 Gigabytes al mes**.*
+> `[Señalar las fórmulas de dimensionamiento]`  
+> *A partir de la arquitectura que acabamos de revisar, realizamos el cálculo para una flota de 100 camiones transmitiendo continuamente:*  
+> *100 vehículos $\times$ 8,640 lecturas al día $\times$ 30 días = **25,920,000 eventos mensuales**, lo que representa **3.88 Gigabytes al mes**.*
 >
-> `[Señalar la tabla de costos por servicio]`  
-> *Analicemos el desglose línea por línea:*
-> * *En **Cloud Pub/Sub**: como transferimos 3.88 GB y Google otorga **10 GB gratis al mes**, el costo es **$0.00 USD**.*
-> * *En **BigQuery Direct Ingestion**: la tarifa es de 5 centavos por gigabyte. Por 3.88 GB pagamos apenas **$0.19 USD al mes**.*
-> * *En **Almacenamiento de BigQuery**: tras un año completo acumulamos 46.5 GB. Con los primeros 10 GB gratuitos, el promedio mensual a $0.02/GB es de **$0.73 USD**.*
-> * *En **Consultas SQL de BigQuery**: gracias al particionado diario, escaneamos unos 120 GB al mes. Como Google otorga **1 Terabyte gratuito mensual**, el costo es **$0.00 USD**.*
-> * *Y en **Cloud Storage y Red Interna**: el costo es **$0.00 USD** por Free Tier y tráfico colocalizado.*
+> `[Señalar la tabla de costos oficiales de GCP]`  
+> *Aplicando las tarifas públicas oficiales de Google Cloud para `us-central1`:*
+> * *En **Cloud Pub/Sub**: los 3.88 GB quedan 100% cubiertos por los **10 GB gratuitos mensuales** $\implies$ **$0.00 USD**.*
+> * *En **BigQuery Ingesta Directa**: a $0.05 por GB procesado, pagamos apenas **$0.19 USD al mes** ($2.28 USD al año).*
+> * *En **Almacenamiento de BigQuery**: tras 12 meses acumulamos 46.5 GB. Descontando los 10 GB gratuitos, el promedio mensual a $0.02/GB es de **$0.73 USD al mes** ($8.76 USD al año).*
+> * *En **Consultas SQL de BigQuery**: escaneamos ~120 GB mensuales, totalmente cubiertos por el **1 Terabyte gratuito mensual** $\implies$ **$0.00 USD**.*
+> * *En **Cloud Storage y Red Interna**: cubiertos por el Free Tier y tráfico colocalizado $\implies$ **$0.00 USD**.*
 >
-> `[Pausa de 2 segundos. Enfatizar con la voz]`
+> `[Pausa de 2 segundos. Modular la voz con firmeza]`
 >
-> `[Señalar el Total Anual y la Comparativa TCO]`  
-> *Sumando todo, la facturación mensual proyectada es de tan solo **$0.92 dólares al mes**, lo que equivale a **$11.04 dólares al año**.*
+> `[Señalar la fila de Total Facturación y Comparativa TCO]`  
+> *El costo total del primer año es de apenas **$0.92 dólares al mes**, lo que equivale a **$11.04 dólares al año**.*
 >
-> *Comparemos esto con la industria tradicional: si hubiésemos contratado un clúster Dataproc de Spark con dos máquinas `n1-standard-2` encendidas 24/7, la empresa pagaría **$1,152 dólares al año**. Nuestra arquitectura Serverless genera un ahorro neto de **$1,140 dólares anuales**, lo que representa una **reducción del 99.04% en el Costo Total de Propiedad (TCO)**.*
+> *Si comparamos esto con la arquitectura tradicional de un clúster Dataproc de Spark con dos máquinas `n1-standard-2` encendidas 24/7, que cuesta **$1,152 dólares al año**, nuestra arquitectura Serverless genera un ahorro neto de **$1,140 dólares anuales**, lo que representa una **reducción del 99.04% en el Costo Total de Propiedad**.*
 >
-> *A continuación, demostraremos esto en vivo en nuestra prueba de extremo a extremo."*
+> *Veamos ahora el Punto 8: la Demostración Práctica End-to-End."*
 
 `[Transición: Pasar al Slide 9]`
 
 ---
 
-## DIAPOSITIVA 09: 8. DEMO END-TO-END DE IMPLEMENTACIÓN (CASO REAL EN VIVO)
+## DIAPOSITIVA 09: 8. DEMO END TO END DE IMPLEMENTACIÓN
 **Tiempo estimado:** 03:00 minutos  
 **Diapositiva en pantalla:** Diagrama de secuencia y trace de terminal de la prueba real.  
 *(Opcional: Si el jurado solicita la terminal interactiva, pasar a la ventana de Cloud Shell y ejecutar `python demo/demo_e2e.py`)*
 
 ### 🎙️ Discurso Verbal:
 
-> *"Para demostrar la factibilidad técnica y la robustez del código, desarrollamos un arnés automatizado de validación end-to-end en el script `demo/demo_e2e.py`.*
+> *"Llegamos al **Punto 8: Demo end to end de implementación**.*
 >
 > `[Señalar el diagrama de secuencia en pantalla]`  
-> *El caso de uso real que emulamos representa una contingencia logística en plena carretera:*
+> *Para comprobar el funcionamiento del pipeline corriendo de extremo a extremo, construimos un arnés de validación automatizado en el script `demo/demo_e2e.py` que recorre el ciclo de vida completo de un incidente:*
 >
-> * **Paso 1:** El dispositivo `SENSOR-02` instalado en el vehículo `Camion-Reparto-04`, conducido por Juan Perez, transporta un lote de **Carne Fresca** (500 kg valorizados a $5.00/kg). El límite térmico máximo tolerado es de **4.0°C**. El compresor sufre una falla mecánica y el sensor registra **13.5°C**.
-> * **Paso 2:** El evento se empaqueta en JSON, se firma con la Service Account y se publica en Cloud Pub/Sub, recibiendo el identificador de confirmación `Message ID: 23550907518145894` en 120 milisegundos.
-> * **Paso 3:** La suscripción BigQuery Direct Ingestion persiste el dato crudo en la tabla `bronze_telemetria` en **2.1 segundos**, sin servidores intermediarios.
-> * **Paso 4:** En el Hot Path, la vista SQL `v_alertas_cadena_frio` detecta de inmediato el **exceso térmico de +9.5°C** y levanta la bandera roja en la torre de control.
-> * **Paso 5:** Se dispara el pipeline batch `batch_pipeline.py`. El proceso aplica deduplicación en la Capa Silver y cruza el incidente en la Capa Gold. Al detectar una desviación superior a 5°C, clasifica la severidad como **CRÍTICA** y calcula la merma contable: 500 kg con castigo del 47.5% arroja una **pérdida financiera de $1,187.50 USD**.
-> * **Paso 6:** Invocamos el endpoint `/api/v1/incidents?severity=CRÍTICA` de nuestra API REST en FastAPI, la cual responde `HTTP 200 OK` entregando el contrato JSON auditado.
-> * **Paso 7:** El sistema emite la decisión prescriptiva: ordena el desvío inmediato del conductor a la cámara de frío más cercana y coloca el lote en cuarentena automática en el sistema WMS para evitar que llegue a la mesa del consumidor.
+> * **Paso 1 (Inyección):** El sensor `SENSOR-02` instalado en el vehículo `Camion-Reparto-04`, conducido por Juan Perez, transporta un lote de **Carne Fresca** (500 kg valorizados a $5.00/kg). El límite térmico máximo tolerado es de **4.0°C**. El compresor sufre una avería y el sensor reporta **13.5°C**.
+> * **Paso 2 (Pub/Sub):** El evento se empaqueta en JSON, se firma con la Service Account y se publica en Cloud Pub/Sub, recibiendo el identificador de confirmación `Message ID: 23550907518145894` en 120 milisegundos.
+> * **Paso 3 (Bronze Streaming):** BigQuery Direct Ingestion persiste el dato en la tabla `bronze_telemetria` en **2.1 segundos**, sin servidores intermediarios.
+> * **Paso 4 (Hot Path):** La vista SQL `v_alertas_cadena_frio` detecta de inmediato el **exceso térmico de +9.5°C** y activa la alerta roja en la torre de despacho.
+> * **Paso 5 (Batch Pipeline):** El pipeline batch `batch_pipeline.py` deduplica en la Capa Silver y liquida en la Capa Gold: al superar los 5°C de desviación, clasifica la severidad como **CRÍTICA** y calcula la merma contable: 500 kg con castigo del 47.5% arroja una **pérdida financiera de $1,187.50 USD**.
+> * **Paso 6 (REST API):** El endpoint `/api/v1/incidents?severity=CRÍTICA` de nuestra API REST en FastAPI responde `HTTP 200 OK` entregando el JSON auditado.
+> * **Paso 7 (Decisión Prescriptiva):** El sistema emite la orden de desvío inmediato al chofer Juan Perez hacia una cámara frigorífica de contingencia y bloquea el lote en el sistema WMS para que no llegue al consumidor.
 >
 > `[Pausa de 2 segundos]`
-> *El flujo funcionó de extremo a extremo, cerrando el ciclo entre el sensor de campo y el balance financiero corporativo.*
+> *El pipeline funcionó de extremo a extremo, cerrando el ciclo entre el sensor de campo y el balance financiero corporativo.*
 >
-> *Sinteticemos ahora las conclusiones principales del proyecto."*
+> *Pasemos ahora al Punto 9: las Conclusiones."*
 
 `[Transición: Pasar al Slide 10]`
 
 ---
 
-## DIAPOSITIVA 10: 9. CONCLUSIONES DE LA IMPLEMENTACIÓN
+## DIAPOSITIVA 10: 9. CONCLUSIONES
 **Tiempo estimado:** 01:30 minutos  
 **Diapositiva en pantalla:** Cuatro pilares de conclusiones (Factibilidad, Gobernanza, Finanzas, Negocio).
 
 ### 🎙️ Discurso Verbal:
 
-> *"Como balance general de este trabajo de ingeniería, podemos resumir nuestras conclusiones en cuatro dimensiones estratégicas:*
+> *"Entramos al **Punto 9: Conclusiones**.*
 >
 > `[Señalar punto 1: Factibilidad Técnica]`  
-> *Primero, **Factibilidad Técnica Comprobada**: demostramos que una arquitectura moderna de datos no requiere la complejidad ni el costo de gestionar clústeres dedicados. La unión nativa de Pub/Sub Direct Ingestion y BigQuery ofrece escalabilidad masiva con cero fricción de mantenimiento.*
+> *Primero, **Factibilidad Técnica Serverless Comprobada**: demostramos que no se requieren clústeres complejos ni servidores dedicados para procesar IoT a gran escala. La integración nativa de Cloud Pub/Sub Direct Ingestion y BigQuery ofrece escalabilidad masiva con cero mantenimiento de infraestructura.*
 >
 > `[Señalar punto 2: Gobernanza ALCOA+]`  
-> *Segundo, **Gobernanza y Confiabilidad Matemática**: la inmutabilidad de la Capa Bronze combinada con la deduplicación analítica en la Capa Silver asegura que ninguna fluctuación de red celular altere los registros contables, cumpliendo con los estándares de integridad de datos exigidos por la FDA y la industria farmacéutica.*
+> *Segundo, **Gobernanza y Calidad Matemática**: la inmutabilidad de la Capa Bronze unida a la deduplicación analítica en la Capa Silver con `ROW_NUMBER()` garantiza que las fluctuaciones de red móvil no dupliquen incidentes ni distorsionen los libros contables, cumpliendo con los estándares de integridad de datos exigidos por la FDA.*
 >
 > `[Señalar punto 3: Disrupción en TCO]`  
-> *Tercero, **Eficiencia Económica Radical**: reducir el costo anual de infraestructura de **$1,152 dólares a tan solo $11 dólares** mediante arquitectura Serverless es un resultado contundente que demuestra que la excelencia en ingeniería se traduce en rentabilidad para la empresa.*
+> *Tercero, **Eficiencia Económica Radical**: reducir el costo anual de infraestructura de **$1,152 dólares a tan solo $11 dólares** mediante arquitectura Serverless representa un ahorro del 99.04%, demostrando que la solución es financieramente imbatible.*
 >
 > `[Señalar punto 4: Valor de Negocio]`  
-> *Y cuarto, **De Datos a Valor**: logramos que la telemetría hable el lenguaje de la alta dirección. El sistema no solo emite advertencias técnicas: emite asientos de liquidación contable en dólares que habilitan el cobro automático de pólizas de seguro y previenen daños a la salud pública.*
+> *Y cuarto, **De Datos a Valor**: logramos que la telemetría hable el idioma del negocio. El sistema no solo emite alertas técnicas: emite asientos de liquidación contable en dólares que habilitan el cobro automático de pólizas de seguro y protegen la salud de los consumidores.*
 >
-> *Veamos finalmente la hoja de ruta que proyectamos para este sistema."*
+> *Revisemos finalmente el Punto 10: Next Steps."*
 
 `[Transición: Pasar al Slide 11]`
 
 ---
 
-## DIAPOSITIVA 11: 10. NEXT STEPS (HOJA DE RUTA ESTRATÉGICA 2027)
+## DIAPOSITIVA 11: 10. NEXT STEPS
 **Tiempo estimado:** 01:00 minuto  
 **Diapositiva en pantalla:** Línea de tiempo de Fases 1, 2 y 3 (Machine Learning, Cloud Run, Blockchain).
 
 ### 🎙️ Discurso Verbal:
 
-> *"Nuestra visión de este proyecto va más allá de esta entrega académica; hemos trazado una hoja de ruta tecnológica clara y escalable.*
+> *"Culminamos los puntos oficiales con el **Punto 10: Next Steps**.*
 >
 > `[Señalar Fase 2: Q1 2027]`  
-> *En la **Fase 2**, programada para el primer trimestre de 2027, implementaremos inteligencia predictiva utilizando **BigQuery ML**. Mediante modelos de series temporales con el algoritmo `ARIMA_PLUS`, el sistema ya no esperará a que la temperatura rompa el límite de 4°C: analizará la velocidad de incremento térmico y **predecirá la anomalía con 30 minutos de anticipación** mientras el vehículo aún se encuentra en ruta.*
-> *Asimismo, desplegaremos la API REST en contenedores sobre **Google Cloud Run** para contar con autoescalado serverless de 0 a 1,000 instancias concurrentes e implementaremos CI/CD automatizado con GitHub Actions.*
+> *Nuestra visión estratégica proyecta una evolución en dos fases futuras:*
+> * *En la **Fase 2 (Q1 2027)**, incorporaremos inteligencia predictiva utilizando **BigQuery ML**. Mediante modelos de series temporales con el algoritmo `ARIMA_PLUS`, el sistema ya no esperará a que la temperatura rompa el límite de 4°C: analizará la pendiente de subida térmica y **predecirá la rotura con 30 minutos de anticipación** en plena carretera. Asimismo, empaquetaremos la API en contenedores sobre **Google Cloud Run** e implementaremos CI/CD automatizado con GitHub Actions.*
 >
 > `[Señalar Fase 3: Q2 2027]`  
-> *En la **Fase 3**, para el segundo trimestre de 2027, integraremos los incidentes de la Capa Gold con **contratos inteligentes en Blockchain**, permitiendo que las indemnizaciones de aseguradoras o las penalidades a transportistas infractores se debiten de forma automática e irrevocable. Y dotaremos a los conductores de una aplicación móvil PWA con alarmas acústicas en cabina.*
+> * *En la **Fase 3 (Q2 2027)**, integraremos la Capa Gold con **contratos inteligentes en Blockchain**, permitiendo que las indemnizaciones de seguros o penalidades a transportistas infractores se debiten de forma automática e irrevocable ante una rotura térmica certificada. Y dotaremos a los choferes de una aplicación móvil PWA con alarmas acústicas en cabina.*
 >
 > *Pasemos ahora al cierre de la presentación."*
 
@@ -356,7 +362,7 @@ TIEMPO TOTAL: 18 - 20 MINUTOS
 
 ---
 
-## DIAPOSITIVA 12: DEFENSA TÉCNICA Y CIERRE PROTOCOLAR
+## DIAPOSITIVA 12: DEFENSA TÉCNICA Y PREGUNTAS DEL JURADO (Q&A)
 **Tiempo estimado:** 01:00 minuto  
 **Diapositiva en pantalla:** Agradecimiento, metadatos del proyecto y banco de preguntas preparadas.
 
@@ -364,9 +370,9 @@ TIEMPO TOTAL: 18 - 20 MINUTOS
 
 > *"Estimados miembros del jurado evaluador, profesor y colegas:*
 >
-> *Con esto concluyo formalmente la sustentación de la arquitectura **Smart Cold Chain IoT** en Google Cloud Platform.*
+> *Con esto concluyo formalmente la sustentación de los diez puntos requeridos para el proyecto **'Smart Cold Chain IoT'** en Google Cloud Platform.*
 >
-> *Hemos comprobado que la ingeniería de datos en la nube permite salvar cargamentos millonarios, proteger la salud de las personas y optimizar radicalmente los presupuestos de tecnología.*
+> *Hemos comprobado que la ingeniería de datos en la nube permite salvar cargamentos millonarios, proteger la salud pública y optimizar radicalmente los presupuestos de tecnología.*
 >
 > *El código fuente completo, los scripts de prueba, la documentación técnica y los modelos SQL se encuentran disponibles y versionados en nuestro repositorio abierto de GitHub.*
 >
@@ -380,15 +386,7 @@ TIEMPO TOTAL: 18 - 20 MINUTOS
 
 ---
 
-# GUÍA MAESTRA DE RESPUESTAS ANTE PREGUNTAS DEL JURADO (Q&A)
-
-### Técnica de Comunicación Recomendada:
-Cuando un profesor o jurado te haga una pregunta:
-1. **Escucha activamente** sin interrumpir hasta que termine de hablar.
-2. **Agradece y valida la pregunta:** *"Muchas gracias por la pregunta, profesor [Nombre]..."* o *"Es una pregunta fundamental para la gobernanza del sistema..."*.
-3. **Responde primero con la conclusión técnica directa (10 segundos)** y luego sustenta con la evidencia real de tu implementación en GCP.
-
----
+# BANCO MAESTRO DE RESPUESTAS ANTE PREGUNTAS DEL JURADO (Q&A)
 
 ### PREGUNTA 1: ¿Por qué usaron BigQuery Direct Ingestion en lugar de Cloud Dataflow (Apache Beam)?
 * **Respuesta Maestra:**
@@ -438,17 +436,3 @@ Cuando un profesor o jurado te haga una pregunta:
 * **Respuesta Maestra:**
   > *"La integración es totalmente directa gracias al modelado en estrella de la Capa Gold. Las herramientas como Looker Studio, Power BI o Tableau cuentan con conectores nativos de alta velocidad hacia BigQuery.*
   > *Al conectar el tablero con la tabla `gold_fact_incidentes` y sus dimensiones maestras, la herramienta ejecuta consultas SQL directas o aprovecha BigQuery BI Engine para cachear en memoria las consultas más frecuentes, entregando visualizaciones interactivas de mapas de calor térmico, mermas por transportista y cumplimiento de SLA con latencias inferiores a un segundo."*
-
----
-
-### RESUMEN DE CONSEJOS ANTE IMPREVISTOS DURANTE LA SUSTENTACIÓN
-
-* **Si la conexión a Internet falla durante la Demo:**  
-  *Mantén la calma y di con aplomo:*  
-  *"Como medida preventiva de contingencia de ingeniería, hemos documentado la traza completa de ejecución con sus identificadores de mensaje de Pub/Sub y respuestas HTTP en la diapositiva 9 y en nuestro informe técnico. Podemos observar aquí los mismos pasos que corre el script en vivo."*
-* **Si el jurado te interrumpe a mitad de una lámina:**  
-  *Detén tu discurso, escucha con atención, asiente con la cabeza y responde puntualmente lo que preguntan. Luego retoma fluidamente:*  
-  *"Retomando el flujo de la arquitectura..."*
-* **Si te preguntan algo que no contemplaste:**  
-  *No inventes. Di con madurez profesional:*  
-  *"Ese es un punto muy valioso que no formó parte del alcance inicial de esta entrega, pero representa una excelente oportunidad de mejora que incorporaremos en la Fase 2 de nuestra hoja de ruta tecnológica."*
