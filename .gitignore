@@ -1,0 +1,23 @@
+# Credentials & Security
+sa-iot-key.json
+*.json
+*.key
+*.pem
+
+# Python Virtual Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# OS & IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp

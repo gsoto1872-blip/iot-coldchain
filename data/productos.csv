@@ -1,0 +1,4 @@
+product_id,nombre,categoria,temp_min,temp_max,costo_unitario
+PROD-01,Vacunas ARN,Farmacia,2.0,8.0,45.00
+PROD-02,Carne Fresca,Alimentos,-1.0,4.0,12.50
+PROD-03,Helado Gourmet,Congelados,-22.0,-18.0,6.00
