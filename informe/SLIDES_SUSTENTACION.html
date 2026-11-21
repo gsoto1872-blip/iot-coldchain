@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustentación Final: Smart Cold Chain IoT en GCP</title>
+    <!-- Mermaid.js para diagramas en diapositivas -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .slide-container {
+            width: 90vw;
+            max-width: 1200px;
+            height: 82vh;
+            background: #1e293b;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            padding: 40px 50px;
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid #334155;
+            display: none;
+        }
+        .slide-container.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        
+        h1 { font-size: 2.2em; color: #38bdf8; margin-bottom: 12px; }
+        h2 { font-size: 1.6em; color: #7dd3fc; margin-bottom: 20px; border-bottom: 1px solid #334155; padding-bottom: 8px; }
+        h3 { font-size: 1.2em; color: #94a3b8; margin-bottom: 15px; }
+        p, li { font-size: 1.05em; line-height: 1.6; color: #cbd5e1; }
+        ul { margin-left: 25px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9em; background: #0f172a; border-radius: 6px; overflow: hidden; }
+        th, td { padding: 12px 16px; text-align: left; border: 1px solid #334155; }
+        th { background-color: #0284c7; color: #ffffff; font-weight: 600; }
+        tr:nth-child(even) { background-color: #1e293b; }
+        
+        .mermaid { background: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; color: #000; text-align: center; }
+        .controls { margin-top: 20px; display: flex; gap: 15px; align-items: center; }
+        button {
+            background-color: #0284c7;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        button:hover { background-color: #0369a1; }
+        .slide-number { font-size: 0.95em; color: #94a3b8; font-weight: 500; }
+        .badge { display: inline-block; padding: 3px 10px; font-size: 0.8em; font-weight: bold; border-radius: 12px; }
+        .badge-success { background-color: #10b981; color: #042f2e; }
+        pre { background: #0f172a; padding: 16px; border-radius: 8px; border: 1px solid #334155; color: #38bdf8; font-family: monospace; font-size: 0.88em; overflow-x: auto; margin: 15px 0; }
+        
+        @media print {
+            body { overflow: visible; height: auto; background: #ffffff; color: #000; }
+            .slide-container { display: block !important; page-break-after: always; width: 100%; height: auto; box-shadow: none; border: none; background: #ffffff; color: #000; padding: 20px; }
+            .controls { display: none; }
+            h1, h2 { color: #0b57d0; }
+            p, li { color: #333; }
+            th { background: #0b57d0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1 -->
+    <div class="slide-container active" id="slide-1">
+        <h1 style="font-size:2.4em; text-align:center; margin-top:40px;">SMART COLD CHAIN IoT</h1>
+        <h2 style="text-align:center; color:#38bdf8; border:none;">Arquitectura End-to-End y Procesamiento Híbrido en Google Cloud Platform</h2>
+        <div style="text-align:center; margin:30px 0;">
+            <p style="font-size:1.2em;"><strong>Sustentación Final de Proyecto</strong> | Memoria de Ingeniería</p>
+            <p style="color:#94a3b8; margin-top:10px;">ID Proyecto GCP: <code>myfirstproject-508413</code> | Región: <code>us-central1</code></p>
+            <p style="color:#94a3b8;">Autor: <strong>Guillermo Soto</strong> | Noviembre 2026</p>
+        </div>
+        <div style="background:#0f172a; padding:20px; border-radius:8px; border-left:4px solid #38bdf8; margin-top:30px;">
+            <p style="font-style:italic; text-align:center; font-size:1.1em; color:#e2e8f0;">
+                "De sensores ciegos a decisiones prescriptivas: valorizando financieramente el riesgo térmico en la nube."
+            </p>
+        </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide-container" id="slide-2">
+        <h2>1. Resumen Ejecutivo - Alcance de la Implementación</h2>
+        <p><strong>Problema:</strong> Las pérdidas por rotura de cadena de frío en farmacéutica y alimentos superan el 15% del valor transportado debido a monitoreos pasivos no integrados.</p>
+        <p style="margin-top:15px;"><strong>Alcance Desarrollado:</strong></p>
+        <ul>
+            <li><strong>Ingesta Elástica:</strong> Cloud Pub/Sub conectado a BigQuery sin código intermedio (*Direct Ingestion*).</li>
+            <li><strong>Arquitectura Medallion:</strong> Capas Bronze (crudo particionado), Silver (deduplicado y limpio) y Gold (Star Schema analítico).</li>
+            <li><strong>Procesamiento Híbrido:</strong> Hot Path (&lt; 2s para alarmado en vivo) y Cold Path (Batch masivo para cálculo contable de mermas).</li>
+            <li><strong>Capa de Exposición:</strong> Microservicio REST API en FastAPI para clientes web, ERPs y Looker Studio.</li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide-container" id="slide-3">
+        <h2>2. Situación Actual (As-Is vs To-Be)</h2>
+        <table>
+            <tr>
+                <th>Dimensión</th>
+                <th>Situación Actual (As-Is)</th>
+                <th>Situación Futura Implementada (To-Be)</th>
+            </tr>
+            <tr>
+                <td><strong>Monitoreo</strong></td>
+                <td>Dataloggers USB pasivos. Lectura manual al final del viaje.</td>
+                <td><strong>Streaming continuo en vivo</strong> cada 3s vía Cloud Pub/Sub.</td>
+            </tr>
+            <tr>
+                <td><strong>Tiempo de Respuesta</strong></td>
+                <td>Días o semanas post-mortem (pérdida consumada).</td>
+                <td><strong>&lt; 2 segundos</strong> desde la anomalía térmica.</td>
+            </tr>
+            <tr>
+                <td><strong>Integración de Datos</strong></td>
+                <td>Silos desconectados entre telemetría y ERP.</td>
+                <td><strong>Data Lakehouse Unificado</strong> con Star Schema en BigQuery.</td>
+            </tr>
+            <tr>
+                <td><strong>Valoración del Daño</strong></td>
+                <td>Disputas contractuales y estimaciones subjetivas.</td>
+                <td><strong>Liquidación financiera automatizada</strong> en dólares en la Capa Gold.</td>
+            </tr>
+            <tr>
+                <td><strong>Costos de TI</strong></td>
+                <td>Servidores dedicados con altos costos fijos mensuales.</td>
+                <td><strong>100% Serverless:</strong> $0 costo en pruebas, $0.92/mes en producción.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="slide-container" id="slide-4">
+        <h2>3. Criterios de Éxito y Performance (Formato KPI)</h2>
+        <table>
+            <tr>
+                <th>Objetivo / Criterio</th>
+                <th>Métrica / KPI Formal</th>
+                <th>Meta Establecida</th>
+                <th>Resultado Obtenido</th>
+                <th>Estado</th>
+            </tr>
+            <tr>
+                <td><strong>Latencia Operacional</strong></td>
+                <td>Tiempo de detección Hot Path</td>
+                <td>&le; 3.0 s</td>
+                <td><strong>1.8 segundos</strong></td>
+                <td><span class="badge badge-success">SUPERADO</span></td>
+            </tr>
+            <tr>
+                <td><strong>Disponibilidad Ingesta</strong></td>
+                <td>SLA de recepción de telemetría</td>
+                <td>&ge; 99.90%</td>
+                <td><strong>99.99% (SLA Pub/Sub)</strong></td>
+                <td><span class="badge badge-success">CUMPLIDO</span></td>
+            </tr>
+            <tr>
+                <td><strong>Calidad de Datos</strong></td>
+                <td>Deduplicación determinística Silver</td>
+                <td>100% duplicados</td>
+                <td><strong>100% (ROW_NUMBER + MD5)</strong></td>
+                <td><span class="badge badge-success">CUMPLIDO</span></td>
+            </tr>
+            <tr>
+                <td><strong>Cuantificación Financiera</strong></td>
+                <td>Cobertura de liquidación de mermas</td>
+                <td>100% incidentes</td>
+                <td><strong>100% valorizados en USD</strong></td>
+                <td><span class="badge badge-success">CUMPLIDO</span></td>
+            </tr>
+            <tr>
+                <td><strong>Costo Operacional</strong></td>
+                <td>Costo mensual en laboratorio</td>
+                <td>&le; $20.00 USD</td>
+                <td><strong>$0.00 USD (Always Free)</strong></td>
+                <td><span class="badge badge-success">SUPERADO</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- SLIDE 5 -->
+    <div class="slide-container" id="slide-5">
+        <h2>4. Productos Tecnológicos a Usar (Stack GCP)</h2>
+        <ul>
+            <li><strong>Google Cloud Pub/Sub:</strong> Ingesta asíncrona, desacoplamiento y absorción elástica de ráfagas telemáticas.</li>
+            <li><strong>Google Cloud BigQuery:</strong> Motor columnar Lakehouse para almacenamiento particionado por fecha y cómputo SQL distribuido.</li>
+            <li><strong>Google Cloud Storage (GCS):</strong> Almacén de objetos para cargas batch de datos maestros de catálogo e inventario.</li>
+            <li><strong>Google Cloud IAM:</strong> Seguridad granular con Service Account dedicada y rol de menor privilegio (<code>roles/pubsub.publisher</code>).</li>
+            <li><strong>FastAPI & Python 3.12:</strong> Microservicio REST de exposición analítica y orquestador del pipeline ELT.</li>
+            <li><strong>Looker Studio:</strong> Conexión nativa a la Capa Gold para tableros ejecutivos y KPIs de control térmico.</li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 6 -->
+    <div class="slide-container" id="slide-6">
+        <h2>5. Dependencias, Supuestos y Fuera de Scope</h2>
+        <p><strong>Dependencias Críticas:</strong></p>
+        <ul>
+            <li>Conectividad de red móvil (4G / Cat-M1) en ruta logística.</li>
+            <li>Disponibilidad de servicios en la región GCP <code>us-central1</code>.</li>
+        </ul>
+        <p style="margin-top:15px;"><strong>Supuestos Clave:</strong></p>
+        <ul>
+            <li>Los sensores cumplen con el contrato de datos JSON Schema (UTF-8).</li>
+            <li>El costo unitario del producto se mantiene fijo durante la vigencia del viaje logístico.</li>
+            <li>Cada contenedor refrigerado transporta un lote estándar de 50 unidades.</li>
+        </ul>
+        <p style="margin-top:15px;"><strong>Fuera de Scope (Out-of-Scope):</strong></p>
+        <ul>
+            <li>Diseño físico de circuitos o hardware electrónico de los sensores.</li>
+            <li>Trámites y declaraciones aduaneras internacionales.</li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 7 -->
+    <div class="slide-container" id="slide-7">
+        <h2>6. Arquitectura Final (Estimación Consumo Año 1)</h2>
+        <div class="mermaid">
+        flowchart LR
+            IoT["100 Sensores IoT<br/><i>(1 msg/10s)</i>"] --> PS["Cloud Pub/Sub<br/>(3.88 GB/mes)"]
+            PS --> Sub["BigQuery Direct Ingestion"]
+            Sub --> Bronze[("Bronze: Raw Table")]
+            Bronze --> Silver[("Silver: Clean Table")]
+            Silver --> Gold[("Gold: Star Schema")]
+            Gold --> API["FastAPI REST Endpoints"]
+            Gold --> BI["Looker Studio BI"]
+        </div>
+        <p style="text-align:center; font-size:0.95em; color:#94a3b8; margin-top:10px;">
+            Base de cálculo: 100 sensores &times; 8,640 lecturas/día &times; 30 días = <strong>25,920,000 eventos/mes</strong> (&approx; 3.88 GB/mes).
+        </p>
+    </div>
+
+    <!-- SLIDE 8 -->
+    <div class="slide-container" id="slide-8">
+        <h2>7. Calculadora de Consumo (Pricing Real GCP us-central1)</h2>
+        <table>
+            <tr>
+                <th>Servicio GCP</th>
+                <th>Consumo Mensual (100 Sensores)</th>
+                <th>Tarifa Oficial GCP</th>
+                <th>Costo Mensual</th>
+                <th>Costo Anual Proyectado</th>
+            </tr>
+            <tr>
+                <td><strong>Cloud Pub/Sub</strong></td>
+                <td>3.88 GB / mes</td>
+                <td>$40.00 / TB (10 GB gratis)</td>
+                <td><strong>$0.00 USD</strong></td>
+                <td><strong>$0.00 USD</strong></td>
+            </tr>
+            <tr>
+                <td><strong>BigQuery Ingesta Directa</strong></td>
+                <td>3.88 GB / mes</td>
+                <td>$0.05 / GB procesado</td>
+                <td><strong>$0.19 USD</strong></td>
+                <td><strong>$2.28 USD</strong></td>
+            </tr>
+            <tr>
+                <td><strong>BigQuery Almacenamiento</strong></td>
+                <td>46.5 GB (acumulado año 1)</td>
+                <td>$0.02 / GB (10 GB gratis)</td>
+                <td><strong>$0.73 USD</strong></td>
+                <td><strong>$8.76 USD</strong></td>
+            </tr>
+            <tr>
+                <td><strong>BigQuery Consultas SQL</strong></td>
+                <td>120 GB / mes (particionado)</td>
+                <td>$6.25 / TB (1 TB gratis)</td>
+                <td><strong>$0.00 USD</strong></td>
+                <td><strong>$0.00 USD</strong></td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL AÑO 1 (100 SENSORES)</strong></td>
+                <td><strong>25.9M mensajes / mes</strong></td>
+                <td><strong>100% Serverless</strong></td>
+                <td><strong>$0.92 USD / mes</strong></td>
+                <td><strong>$11.04 USD / año</strong></td>
+            </tr>
+        </table>
+        <div style="background:#0f172a; padding:12px; border-radius:6px; border-left:4px solid #10b981; margin-top:10px;">
+            <p style="font-size:0.92em; color:#cbd5e1;">
+                <strong>Ahorro frente a clúster Dataproc Spark (24/7):</strong> $1,152.00 USD/año &minus; $11.04 USD/año = <strong>$1,140.96 USD ahorrados (99.04% de Ahorro en TCO)</strong>.
+            </p>
+        </div>
+    </div>
+
+    <!-- SLIDE 9 -->
+    <div class="slide-container" id="slide-9">
+        <h2>8. Demo End-to-End de Implementación (Guion en Vivo)</h2>
+        <pre>
+[PASO 1: Inyección]   SENSOR-02 emite 13.5°C en transporte de Carne Fresca (Límite max: 4.0°C).
+[PASO 2: Pub/Sub]     Publicación con Service Account. Message ID: 23550907518145894 confirmado.
+[PASO 3: Bronze BQ]   BigQuery Direct Ingestion persiste en bronze_telemetria en 2.1 segundos.
+[PASO 4: Hot Path]    Vista v_alertas_cadena_frio activa ALERTA en Torre de Control (+9.5°C).
+[PASO 5: Pipeline]    batch_pipeline.py ejecuta deduplicación en Silver y cálculo en Gold.
+[PASO 6: REST API]    GET /api/v1/incidents devuelve HTTP 200 con pérdida liquidada: $1,187.50 USD.
+[PASO 7: Decisión]    Cuarentena automática en WMS y desvío prescriptivo a cámara de contingencia.
+        </pre>
+        <p style="color:#94a3b8; font-size:0.9em;">
+            Comando ejecutable para demostración: <code>python demo/demo_e2e.py</code>
+        </p>
+    </div>
+
+    <!-- SLIDE 10 -->
+    <div class="slide-container" id="slide-10">
+        <h2>9. Conclusiones de la Implementación</h2>
+        <ul>
+            <li><strong>Factibilidad Técnica Validada:</strong> Se demostró la convergencia de streaming no estructurado y catálogos batch en un Data Lakehouse Serverless en GCP.</li>
+            <li><strong>Eficiencia Económica Disruptiva:</strong> $0.00 USD en laboratorio y $11.04 USD anuales para 100 vehículos, eliminando la barrera de entrada del costo en la nube.</li>
+            <li><strong>Idempotencia y Calidad:</strong> La capa Silver garantiza que reintentos por pérdida de cobertura celular no dupliquen incidentes ni balances de merma.</li>
+            <li><strong>Impacto en Negocio:</strong> Convierte la telemetría instrumental en métricas monetarias directas para auditorías sanitarias y liquidación expedita de pólizas de seguros.</li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 11 -->
+    <div class="slide-container" id="slide-11">
+        <h2>10. Next Steps (Hoja de Ruta Futura)</h2>
+        <div class="mermaid">
+        flowchart LR
+            F1["Fase 1 (Completada)<br/>• Arquitectura Medallion<br/>• Streaming Direct Ingest<br/>• FastAPI REST API"] --> F2["Fase 2 (Q1 2027)<br/>• BigQuery ML (ARIMA+)<br/>• Predicción térmica en ruta<br/>• Cloud Run Deploy de API"]
+            F2 --> F3["Fase 3 (Q2 2027)<br/>• Smart Contracts Blockchain<br/>• Liquidación automática seguros<br/>• App Móvil para choferes"]
+        </div>
+        <ul>
+            <li><strong>Corto Plazo:</strong> Despliegue de la API REST en Cloud Run e inferencia de Machine Learning con BigQuery ML para pronóstico térmico con 30 minutos de anticipación.</li>
+            <li><strong>Mediano Plazo:</strong> Integración con contratos inteligentes en Blockchain para liquidar penalidades automáticas a transportistas infractores.</li>
+        </ul>
+    </div>
+
+    <!-- SLIDE 12 -->
+    <div class="slide-container" id="slide-12">
+        <h1 style="text-align:center; margin-top:50px;">¡Muchas Gracias!</h1>
+        <h3 style="text-align:center; color:#38bdf8;">Preguntas y Defensa Técnica</h3>
+        <div style="text-align:center; margin-top:30px;">
+            <p><strong>Autor:</strong> Guillermo Soto</p>
+            <p><strong>Proyecto GCP:</strong> <code>myfirstproject-508413</code></p>
+            <p><strong>Código Fuente:</strong> <code>https://github.com/gsoto1872/iot-coldchain</code></p>
+            <p style="margin-top:15px; color:#94a3b8;">Endpoints activos: <code>/health</code>, <code>/api/v1/telemetry/live</code>, <code>/api/v1/incidents</code>, <code>/api/v1/kpis/daily</code></p>
+        </div>
+    </div>
+
+    <!-- CONTROLES DE NAVEGACIÓN -->
+    <div class="controls">
+        <button onclick="prevSlide()">&#8592; Anterior</button>
+        <span class="slide-number" id="slide-num">Diapositiva 1 de 12</span>
+        <button onclick="nextSlide()">Siguiente &#8594;</button>
+        <button style="background:#475569;" onclick="window.print()">Imprimir / PDF</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 12;
+
+        function showSlide(n) {
+            document.querySelectorAll('.slide-container').forEach(el => el.classList.remove('active'));
+            const target = document.getElementById(`slide-${n}`);
+            if (target) {
+                target.classList.add('active');
+                currentSlide = n;
+                document.getElementById('slide-num').innerText = `Diapositiva ${currentSlide} de ${totalSlides}`;
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) showSlide(currentSlide - 1);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>
