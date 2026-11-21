@@ -189,16 +189,6 @@ python demo/demo_e2e.py
 
 ---
 
-## 📑 Documentación y Diapositivas de Sustentación
-
-En la carpeta [`informe/`](informe/) se encuentran los documentos finales para evaluación y defensa:
-
-* **[INFORME_FINAL_PROYECTO_IOT.md](informe/INFORME_FINAL_PROYECTO_IOT.md):** Memoria técnica formal de más de 920 líneas con marco regulatorio (OMS / FDA 21 CFR Part 11), diccionario de datos y evidencias.
-* **[SLIDES_SUSTENTACION.md](informe/SLIDES_SUSTENTACION.md):** Diapositivas de sustentación en Markdown con los 10 bullets solicitados.
-* **[SLIDES_SUSTENTACION.html](informe/SLIDES_SUSTENTACION.html):** Pitch deck interactivo navegable con flechas de teclado y listo para proyectar o imprimir en PDF.
-
----
-
 ### Instrucciones para Descargar desde Cloud Shell:
 ```bash
 # Descargar el informe técnico:
