@@ -5,6 +5,7 @@ usando FastAPI y Google Cloud Client Libraries.
 """
 
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import Optional, List
@@ -37,10 +38,25 @@ PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT", "myfirstproject-508413")
 DATASET_ID = "cold_chain_db"
 TOPIC_ID = "iot-telemetry-topic"
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DASHBOARD_PATH = os.path.join(BASE_DIR, "dashboard", "index.html")
+
 # Clientes de GCP
 bq_client = bigquery.Client(project=PROJECT_ID)
 publisher = pubsub_v1.PublisherClient()
 topic_path = publisher.topic_path(PROJECT_ID, TOPIC_ID)
+
+
+# -----------------------------------------------------------------------------
+# 0. Dashboard Web UI (Frontend Integrado)
+# -----------------------------------------------------------------------------
+@app.get("/", include_in_schema=False)
+@app.get("/dashboard", tags=["Dashboard"])
+def get_dashboard():
+    """Sirve la interfaz web interactiva del Dashboard Ejecutivo de Operaciones."""
+    if os.path.exists(DASHBOARD_PATH):
+        return FileResponse(DASHBOARD_PATH, media_type="text/html")
+    return {"message": "Dashboard no disponible en el sistema", "path": DASHBOARD_PATH}
 
 
 # Modelos Pydantic para validación y contratos de datos

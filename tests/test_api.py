@@ -40,9 +40,16 @@ def test_products():
     assert data["total_products"] >= 3
     print(f"✅ /api/v1/products pasó exitosamente: {data['total_products']} productos en catálogo.")
 
+def test_dashboard():
+    response = client.get("/dashboard")
+    assert response.status_code == 200
+    assert "Smart Cold Chain IoT" in response.text
+    print("✅ /dashboard pasó exitosamente: HTML de dashboard entregado correctamente.")
+
 if __name__ == "__main__":
     print("Iniciando pruebas de la Capa de Exposición API...")
     test_health()
+    test_dashboard()
     test_live_telemetry()
     test_incidents()
     test_products()

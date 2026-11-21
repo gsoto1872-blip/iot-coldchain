@@ -91,6 +91,8 @@ iot-coldchain/
 ├── requirements.txt               # Dependencias de producción Python
 ├── api/
 │   └── main.py                    # Capa de Exposición: REST API con FastAPI
+├── dashboard/
+│   └── index.html                 # Dashboard Ejecutivo Interactivo de Operaciones (Zinc SaaS UI)
 ├── data/
 │   ├── productos.csv              # Catálogo maestro y reglas térmicas
 │   └── asignacion_sensores.csv    # Mapeo de sensores, vehículos y choferes
@@ -206,6 +208,9 @@ En la carpeta [`informe/`](informe/) se encuentran los documentos finales para e
 ---
 ### Instrucciones para Descargar desde Cloud Shell:
 ```bash
+# Descargar el dashboard interactivo de operaciones (HTML):
+cloudshell download /home/gsoto1872/iot-coldchain/dashboard/index.html
+
 # Descargar la guía de ejecución de la demo y validación web:
 cloudshell download /home/gsoto1872/iot-coldchain/informe/GUIA_EJECUCION_DEMO_Y_VALIDACION_WEB.md
 
